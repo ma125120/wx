@@ -1,0 +1,96 @@
+scroll-view {
+	min-height: 100%;
+}
+.gray-block {
+	background:#EDEDF0;
+}
+.types {
+	border-bottom: 1px solid #eee;
+}
+.page-head .flex {
+	justify-content: space-around;
+	padding:6px 0;
+}
+.head-type {
+	background: #eee;
+	color:#448CC5;
+	width:24%;
+	border-radius: 5px;
+	line-height: 22px;
+}
+.bor {
+	border-right: 1px solid #aaa;
+}
+.active {
+	border:1px solid #eee;
+	color:#000;
+	background: #fff;
+}
+.menu {
+	width:30%;
+	color:#949494;
+	font-size:10px;
+}
+.arrow {
+	margin:0 5px;
+}
+.item {
+	padding:3px 0;
+	text-align: left;
+	color:#A5A5A5;
+}
+.left {
+	display: flex;
+	align-items: center;
+}
+.left1 {
+	width:100px;
+	height:100px;
+  padding:0 6px;
+}
+.right {
+	flex:1;
+	padding-left:8px;
+	align-self: center;
+}
+.title {
+	color:#000;
+	font-size:16px;
+}
+.top {
+	line-height: 36px;
+	border-bottom: 1px solid #F5F5F5;
+}
+.bottom {
+	line-height: 48px;
+	display: flex;
+	margin-bottom:-4px;
+}
+.l {
+	width:28%;
+	text-align: left;
+}
+.item .price {
+	padding:0 5px 0 1px;
+	font-size:18px;
+}
+.item .price,
+.symbol {
+	color:#2A80C5;
+	vertical-align: text-bottom;
+}
+
+.comment {
+	font-size:12px;
+}
+.comment {
+	color:#888;
+	vertical-align: text-bottom;
+}
+.fle {
+	display: flex;
+box-sizing: border-box;
+padding-right:6px;
+	flex:1;
+	justify-content: flex-end;
+}

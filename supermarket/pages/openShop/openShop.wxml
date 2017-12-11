@@ -1,0 +1,30 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<image src='../../images/home/openBg.jpg' mode="widthFix"></image>
+	<view class="body">
+		<view class="title">倍全互联网+便利店 <text class="small">一次说干就干的创业</text></view>
+		<view class="field">
+			<view class="label">姓名:</view>
+			<input type="text" class='input' name="name" bindchange="changeInput1" />
+		</view>
+		<view class="field">
+			<view class="label">电话:</view>
+			<input type="text" class='input' name="phone" bindchange="changeInput1" />
+		</view>
+		<view class="field">
+			<view class="label">省市:</view>
+			<picker mode='region' class='input flex' bindchange="changeCity">
+				<view class='lr'>{{city||'请选择'}}</view>
+				
+			</picker>
+			<image src='../../images/svg/arrow.png' class='arrow rl'></image>
+		</view>
+		<view class="field">
+			<view class="label">地址:</view>
+			<input type="text" class='input' name="name" bindchange="changeInput1" />
+		</view>
+
+
+	</view>
+	<button class="btn">保存</button>
+</scroll-view>
+

@@ -1,0 +1,27 @@
+scroll-view {
+	min-height: 100%;
+}
+.body {
+	padding:0 12px;
+}
+.field {
+	line-height: 48px;
+	font-size:16px;
+	border-bottom: 1px solid #eee;
+}
+.field input {
+	height: 48px;
+}
+.footer {
+	background: #F7F7F8;
+	padding:72px 0;
+}
+.btn {
+	width:200px;
+	height: 36px;
+	line-height: 36px;
+	font-size:14px;
+	color:#fff;
+	background: #F33030;
+	margin:72px auto;
+}

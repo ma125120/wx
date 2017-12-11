@@ -1,0 +1,56 @@
+scroll-view {
+	position: relative;
+  height:676px;
+  box-sizing: border-box;
+}
+.bg {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:676px;
+	z-index: -20;
+}
+.bg-modal {
+	background: rgba(0,0,0,0.5);
+	z-index:-10;
+}
+.body {
+	width:90%;
+	margin:0 auto;
+	padding-top: 240px;
+}
+.block {
+	width:96%;
+	height:36px;
+	background: #fff;
+	padding-left:20px;
+	line-height: 36px;
+	border-radius: 36px;
+	border:1px solid #333333;
+	margin-bottom: 12px;
+	text-align: left;
+}
+.btn {
+	margin:36px auto;
+	width:60%;
+	background: #169BD5;
+	color:#fff;
+	line-height: 36px;
+	border-radius: 36px;
+  font-size:14px;
+}
+
+.addr {
+	position: relative;
+	top:0;
+	left:0;
+}
+.addr-img {
+	width:24px;
+  height:24px;
+  position:absolute;
+  right:6px;
+  z-index:1000;
+  bottom:8px;
+}

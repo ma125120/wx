@@ -1,0 +1,204 @@
+<import src="../pic.wxml"/>
+
+<view class="cropper-wrapper  {{cutting?'':'hide'}}">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="exit"
+                bindtap="exit">取消</view>
+        <view
+                class="sure"
+                bindtap="sure">确定</view>
+    </view>
+    <view class="my-black"></view>
+</view>
+
+<scroll-view scroll-y="true" scroll-top='0' class="main  {{cutting?'hide':''}}">
+	<picker class="city" mode='region' bindchange="changeCity">{{city}}<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+
+	<view class="option {{isShow=='option'?'':'hide'}}">
+		<view class="title pad" bindtap="setShow" data-type="myOptions"><image src='../../images/svg/arrow.png' class='arrow rotate180'></image>配置参数</view>
+		<view class="table">
+			<view class="tr">
+				<view class="td td1">产品名称</view>
+				<view class="td td2">数量</view>
+				<view class="td td3">单位</view>
+			</view>
+
+			<view class="tr" wx:for="{{info.configure}}" wx:key="{{index}}">
+				<view class="td1 td">
+					<input type="text" value="{{item.name}}"  data-i="{{index}}" data-name='name' bindchange="changeInput1" />
+				</view>
+				<view class="td2 td">
+					<input type="number" value="{{item.num}}"  data-i="{{index}}" data-name='num' bindchange="changeInput1" />
+				</view>
+				<view class="td3 td">
+					<input type="text"  data-i="{{index}}" value="{{item.unit}}"  data-name='unit' bindchange="changeInput1" />
+				</view>
+			</view>
+		</view>
+
+		<button class='btn' bindtap="addInput">增加输入</button>
+		<button class='btn' bindtap="setShow" data-type="myOptions">确定</button>
+	</view>
+	
+
+	<form class="body {{isShow?'hide':''}}"  bindsubmit='readySend'>
+		<view class="normal">
+			<view class="title pad">产品详情介绍</view>
+			<view class="field flex pad">
+				<view class="left">产品类别</view>
+				<picker class="right" mode='selector' range="{{types}}" bindchange="changeTypes" range-key="name">{{types[ti].name}}<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+				<!-- <input type="text" class='right' placeholder="请输入"  name="name" placeholder-class='place' /> -->
+			</view>
+			<view class="field flex pad">
+				<view class="left">联系人</view>
+				<input type="text" class='right' value="{{info.username}}" placeholder="*点击填写" bindchange="changeField" name="name" data-type="name" placeholder-class='place' />
+			</view>
+			<view class="field flex pad">
+				<view class="left">联系电话</view>
+				<input type="text" class='right' value="{{info.phone}}" placeholder="*点击填写" bindchange="changeField" name="phone" data-type="phone" placeholder-class='place' />
+			</view>
+			<view class="field flex pad">
+				<view class="left">取货地址</view>
+				<input type="text" class='right' value="{{info.position}}" placeholder="*点击填写" bindchange="changeField" name="position" data-type="position" placeholder-class='place' />
+			</view>
+			<view class="field flex pad">
+				<view class="left">生产厂家</view>
+				<input type="text" class='right' value="{{info.product}}" placeholder="请输入" bindchange="changeField" data-type="product" name="product" placeholder-class='place' />
+			</view>
+			<view class="field flex pad">
+				<view class="left">产品型号</view>
+				<input type="text" class='right' value="{{info.model}}" placeholder="请输入" bindchange="changeField" data-type="model"  name="model" placeholder-class='place' />
+			</view>
+			
+			<view class="field flex pad">
+				<view class="left">价格设定</view>
+				<view class="right" bindtap="setIsShow" data-name="price">{{ismodels?'*填写完成':'*点击修改'}}</view>
+				<!-- <input type="text" class='right' placeholder=""  name="name" placeholder-class='place' /> -->
+			</view>
+			<view class="field flex pad">
+				<view class="left">配置清单</view>
+				<view class="right" bindtap="setIsShow" data-name="option">{{ismyOptions?'*修改完成':'*点击修改'}}</view>
+			</view>
+			<view class="field flex pad">
+				<view class="left">产品介绍</view>
+				<input type="text" class='right' value="{{info.note}}"  placeholder="*点击填写" bindchange="changeField" data-type="note"   name="note" placeholder-class='place' />
+			</view>
+
+			<view class="title pad">出租日期信息</view>
+			<view class="field flex pad">
+				<view class="left">租赁方式</view>
+				<view class="right">
+					<radio-group class="radio-group" bindchange="radioChange">
+					    <radio value="short" checked="{{shortFlag}}" />短期
+					    <radio value="long" checked="{{!shortFlag}}" />长期
+					</radio-group>
+				</view>
+			</view>
+			<view class="times flex" wx:if="{{shortFlag}}">
+				<picker mode='multiSelector' bindcolumnchange="changeColumn"  range="{{dateArray}}" range-key="name" class="l1 text-left line28" value="{{start}}"  bindchange="changeTime">
+					<view class="date">{{dateObj.dateArray[0][start[0]].count}}-{{dateObj.dateArray[1][start[1]].count}}</view>
+					<view mode='time' class="weeekday">{{weekdays[startDay]}}{{dateObj.dateArray[2][start[2]].name}}</view>
+				</picker>
+				<view class="l2 circle small">取</view>
+				<view class="m circle">
+					<view class="my">{{dateCount}}天</view>
+				</view>
+				<view class="r1 circle small">还</view>
+				<picker mode='multiSelector' bindcolumnchange="changeColumn"  range="{{dateArray}}" range-key="name" class="r2  text-right line28" value="{{end}}" bindchange="changeTime1">
+					<view class="date">{{dateObj.dateArray[0][end[0]].count}}-{{dateObj.dateArray[1][end[1]].count}}</view>
+					<view mode='time' class="weeekday">{{weekdays[endDay]}}{{dateObj.dateArray[2][end[2]].name}}</view>
+				</picker>
+			</view>
+
+			<view class="title pad">*上传产品图片</view>
+			<view class="pics flex">
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath1}}" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="1">
+						<view class="add-symbol">+</view>
+					</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath2}}" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="2">
+						<view class="add-symbol">+</view>
+					</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath3}}" bindtap='chooseImg' data-i="3" src='{{picPath3}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="3">+<!-- <view class="add-symbol">+</view> --></view>
+				</view>
+			</view>
+
+			<button form-type='submit' class='btn' disabled="{{disable}}">修改信息</button>
+			<button class="btn del-btn" bindtap="delete">删除信息</button>
+			<button  class='btn' bindtap="up">上架</button>
+			<button class="btn del-btn" bindtap="down">下架</button>
+		</view>	
+	</form>
+
+	<view class="set-price  {{isShow=='price'?'':'hide'}}" >
+			<view class="title pad"  bindtap="setShow"  data-type="models"><image src='../../images/svg/arrow.png' class='arrow rotate180'></image>标准费用</view>
+			<block wx:if="{{types[ti].name!='RTK'}}">
+					<!-- <view class="field flex pad" >
+						<view class="left">产品名称</view>
+						<input type="text" class='right' placeholder="请输入"  data-i="0" data-name='name' value="{{info.models[0].name}}" bindchange="changeInput" placeholder-class='place' />
+					</view> -->
+					<view class="field flex pad">
+						<view class="left">数量</view>
+						<input type="number" class='right' placeholder="请输入"  data-i="0" data-name='num' value="{{info.models[0].num}}" bindchange="changeInput" placeholder-class='place' />
+					</view>
+					<view class="field flex pad"  wx:if="{{types[ti].name!='无人机'}}">
+						<view class="left">租金</view>
+						<input type="number" class='right' placeholder="请输入"  name="price" placeholder-class='place' value="{{info.models[0].price}}" data-i="0" data-name='price' bindchange="changeInput" />元/台/天
+					</view>
+					<view class="field flex pad" wx:else>
+								<view class="left">计费标准</view>
+								<input type="number" class='right' placeholder="请输入"  name="price" placeholder-class='place' value="{{info.models[0].price}}" data-i="0" data-name='price' bindchange="changeInput" />元/台/公里
+					</view>
+					<view class="field flex pad">
+								<view class="left">押金</view>
+								<input type="number" class='right' placeholder="请输入"  name="deposit" value="{{info.models[0].deposit}}" placeholder-class='place' data-i="0" data-name='deposit' bindchange="changeInput" />元/台
+					</view>
+			</block>
+			<block wx:else>
+				<!-- <view class="field flex pad" >
+					<view class="left">产品名称</view>
+					<input type="text" class='right' value="{{info.models[0].name}}" placeholder="请输入"  data-i="0" data-name='name' bindchange="changeInputR" placeholder-class='place' />
+				</view> -->
+				<view class="field flex pad">
+						<view class="left">租金</view>
+						<input type="number" class='right' value="{{info.models[0].price}}" placeholder="请输入"  name="price" placeholder-class='place' data-i="0" data-name='price' bindchange="changeInputR" />元/台/天
+					</view>
+			</block>				
+
+			<view class="isRTK" wx:if="{{types[ti].name=='RTK'}}">
+				<view class="title pad">移动站</view>
+				<view class="field flex pad">
+					<view class="left">数量</view>
+					<input type="number" class='right' placeholder="请输入"  name="num" placeholder-class='place' value="{{info.models[0].num}}" data-i="0" data-name='num' bindchange="changeInput" />
+				</view>
+				<view class="field flex pad">
+					<view class="left">押金</view>
+					<input type="number" class='right' placeholder="请输入"  name="deposit" placeholder-class='place' value="{{info.models[0].deposit}}" data-i="0" data-name='deposit' bindchange="changeInput" />元/台
+				</view>
+			</view>
+
+			<view class="isRTK" wx:if="{{types[ti].name=='RTK'}}">
+				<view class="title pad">基准站</view>
+				<view class="field flex pad">
+					<view class="left">数量</view>
+					<input type="number" class='right' value="{{info.models[1].num}}" placeholder="请输入"  name="num" placeholder-class='place' data-i="1" data-name='num' bindchange="changeInput" />
+				</view>
+				<view class="field flex pad">
+					<view class="left">押金</view>
+					<input type="number" class='right' value="{{info.models[0].deposit}}" placeholder="请输入"  name="deposit" placeholder-class='place' data-i="1" data-name='deposit' bindchange="changeInput" />元/台
+				</view>
+			</view>
+			<button class='btn' bindtap="setShow"  data-type="models">确定</button>
+	</view>
+</scroll-view>
+<!-- <button bindtap="test">测试图片</button> -->
+

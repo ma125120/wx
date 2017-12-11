@@ -1,0 +1,44 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="page-head line36">
+		<view class="head-title">购物车</view>
+		<view class="ab-right" bindtap="finish"  wx:if="{{type=='delete'}}">完成</view>
+		<view class="ab-right" bindtap="changeType" data-type='delete' wx:else>编辑</view>
+		
+	</view>
+	<view class="del-view line36 flex {{type=='delete'?'':'hide'}}">
+		<view class="my-left"  bindtap="radioChange1">
+			<image class='check-img' src="../../images/cart/{{all1?'checked':'uncheck'}}.png"></image>
+			<text class="text">全选</text>
+		</view>
+		<view class="my-right">
+			<view class="del" bindtap="delChoose">删除所选</view>
+			</view>
+	</view>
+	<view class="checkbox flex" wx:for="{{carts}}" wx:key="{{index}}">
+		<image class='check-img' src="../../images/cart/{{item.checked?'checked':'uncheck'}}.png" bindtap="changeCheck" data-i="{{index}}" data-obj="{{item}}"></image>
+		<image src="{{item.src}}" class='title-img'></image>
+		<view class="m">
+			<view class="title">{{item.name}}</view>
+			<view class="addDel {{type=='delete'?'hide':''}}">
+				<text class="delBtn btn" bindtap="del" data-i="{{index}}">-</text>
+				<input type="number" class='num' value="{{item.num||1}}" placeholder="请输入数量" placeholder-class='place' bindchange="changeNum" data-i="{{index}}" />
+				<text class="addBtn btn"  bindtap="add" data-i="{{index}}">+</text>
+			</view>
+		</view>
+		<view class="r">
+			<view class="pay">￥{{item.price}}</view>
+			<view class="nums">×{{item.num||1}}</view>
+		</view>
+	</view>
+
+
+</scroll-view>
+
+	<view class="foot {{type=='delete'?'hide':''}}">
+		<view class="left"  bindtap="radioChange">
+			<image class='check-img' src="../../images/cart/{{all?'checked':'uncheck'}}.png"></image>
+			<view class="text">全选</view>
+			<view class="price">￥{{total}}</view>
+		</view>
+		<button bindtap="toOrder" class="right submit-btn">提交订单</button>
+	</view>

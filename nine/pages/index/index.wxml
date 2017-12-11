@@ -1,0 +1,49 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<swiper class="slide" indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+		<swiper-item wx:for="{{slides}}" wx:key="{{index}}">
+		<!-- <swiper-item> -->
+			<image src="{{item.src}}"  class='s_img slide'></image>
+		</swiper-item>
+		<view class="city">
+			<image src="../../images/home/city.svg" ></image>
+			<picker mode='region' class="head-city"  bindchange="changeCity">{{city||address.addressComponent.city}}></picker>
+		</view>
+	</swiper>
+
+	<view class="body">
+		<view class="head w">
+			<navigator url='../wantRented/wantRented'  class="my-rent my0">
+				<image  src="../../images/home/10.png"></image>
+				<view class="text">我要租赁</view>
+			</navigator>
+			<navigator url='../wantRent/wantRent' class="my-rent">
+				<image  src="../../images/home/20.png"></image>
+				<view class="text">我要出租</view>
+			</navigator>
+		</view>
+
+		<block wx:for="{{types}}" wx:key="{{index}}" wx:for-item="case">
+			<view class="case0">
+				<view class="case-head line36 w">
+					<view class="title">{{case.name}}推荐</view>
+					<navigator url="../wantRented/wantRented?index={{index}}" class="more">查看更多></navigator>
+				</view>
+				<view class="items">
+					<navigator url="../device/device?LUID={{item.LUID}}" class="item {{index%2==0?'odd':''}}"  wx:for="{{items[index]}}" wx:key="{{index}}">
+						<image src="{{item.img}}" style="width:{{width}}px;height:{{width}}px"></image>
+						<view class="title">{{item.name}}</view>
+						<view class="detail">
+							<view class="symbol"></view>
+							<view class="price">￥{{item.price1}}-{{item.price2}}</view>
+							<view class="comment">/日</view>
+						</view>
+					</navigator>
+				</view>
+			</view>
+			<view class="gray-block"></view>
+		</block>
+		
+	</view>
+	
+</scroll-view>
+

@@ -1,0 +1,73 @@
+<import src="../pic.wxml"/>
+
+<view class="cropper-wrapper {{cutting?'':'hide'}}">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="exit"
+                bindtap="exit">取消</view>
+        <view
+                class="sure"
+                bindtap="sure">确定</view>
+    </view>
+    <view class="my-black"></view>
+</view>
+
+<scroll-view scroll-y="true" scroll-top='0' class="main  {{cutting?'hide':''}}" >
+	<form  bindsubmit='send_form'>
+		<view class="body">
+			<view class="page-main">
+				<view class="item">
+					<view class="l">车辆名称:</view>
+					<input type="text" class='input' placeholder="车辆名称"  name="name" placeholder-class='place' value='{{info.name}}' />
+				</view>
+				<view class="item">
+					<view class="l">车型:</view>
+					<picker class="input arrow" range="{{all}}" range-key="name" bindchange='changeAll'>{{all[ai].name}}</picker>
+				</view>
+				<view class="item">
+					<view class="l">品牌:</view>
+					<input type="text" class='input' placeholder="品牌" name="carType" placeholder-class='place' value='{{info.brand}}' />
+				</view>
+				<view class="item">
+					<view class="l">座位数:</view>
+					<input type="number" class='input' placeholder="座位数" name="seat" placeholder-class='place' value='{{info.seat}}' />
+				</view>
+				<view class="item">
+					<view class="l">出租价格:</view>
+					<input type="number" class='input' placeholder="出租价格" name="price" placeholder-class='place' value='{{info.price}}' />
+				</view>
+				<view class="item">
+					<view class="l">出租类型:</view>
+					<picker class="input arrow" range="{{types}}" bindchange='changeType'>{{types[ti]}}</picker>
+				</view>
+				<view class="item">
+					<view class="l">备注:</view>
+					<input type="text" class='input' placeholder="备注" name="note" placeholder-class='place' value='{{info.note}}' />
+				</view>
+
+				<view class="title">车辆照片（点击修改）:</view>
+				<view class="none-pic" wx:if="{{!picPath1}}" bindtap='chooseImg' data-i="1">+</view>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<!-- <view bindtap="cutPic" data-i="1" class='cut-img'>裁剪图片</view> -->
+				</view>
+				
+				<view class="none-pic" wx:if="{{!picPath2}}" bindtap='chooseImg' data-i="2">+</view>
+				<view class="cut-view" wx:else >
+					<image class="none-pic" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<!-- <view bindtap="cutPic" data-i="2" class='cut-img'>裁剪图片</view> -->
+				</view>
+				
+			</view>
+			
+
+			<view class="foot">
+				<button form-type='submit' class='btn' disabled="{{disable}}">确认修改</button>
+				<button class='btn del-btn' bindtap='delete'>删除此条信息</button>
+			</view>
+		</view>
+	</form>
+	
+</scroll-view>
+

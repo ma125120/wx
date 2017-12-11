@@ -1,0 +1,8 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="addr" bindtap="chooseAddr" wx-if="{{address}}">
+		<view class='top'>{{address.userName}}, {{address.telNumber}}</view>
+		<view class='bot'>{{address.proviceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}</view>
+	</view>
+	<view class="none" bindtap="chooseAddr" wx:else>选择地址</view>
+</scroll-view>
+

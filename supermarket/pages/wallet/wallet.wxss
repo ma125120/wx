@@ -1,0 +1,10 @@
+scroll-view {
+	min-height: 100vh;
+	background: #F2F2F2;
+	font-size:15px;
+}
+.balance {
+	background: #fff;
+	line-height: 120rpx;
+	margin:24rpx;
+}

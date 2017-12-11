@@ -1,0 +1,106 @@
+scroll-view {
+	min-height: 100%;
+	font-size:16px;
+}
+.city {
+	line-height: 48px;
+	font-size:18px;
+}
+.arrow {
+	width:16px;
+	height:16px;
+	padding-left:6px;
+	margin-bottom:3px;
+}
+
+.title {
+	background: #F7F7F7;
+	color:#7D7D7D;
+	line-height: 36px;
+	text-align: left;
+}
+.pad {
+	padding-left:20px;
+}
+.pic image {
+	width:104px;
+	height:104px;
+
+}
+.field {
+	line-height: 48px;
+	border-bottom: 1px solid #F0F0F0;
+}
+.left {
+	width:30%;
+	text-align: left;
+}
+.right{
+	flex:1;
+	line-height: 48px;
+	height: 48px;
+	text-align: right;
+	margin-right:20px;
+}
+radio+radio {
+	margin-left:12px;
+}
+
+.pics {
+	padding:10px 12px;
+	border-bottom: 1px solid #F0F0F0;
+}
+.pic {
+	width:104px;
+	height:104px;
+	background: #F7F7F7;
+}
+.times .small {
+	width:16px;
+	height:16px;
+	line-height: 16px;
+	padding:2px;
+	font-size:10px;
+}
+.my {
+  line-height: 24px;
+	margin:0 auto;
+  text-align: center;
+}
+.times {
+	align-items: center;
+	padding:12px 0 6px;
+}
+.date {
+	font-size:20px;
+	color:#7C7C84;
+}
+.weekday {
+	color:#84848C;
+}
+.times .l2 {
+	color:#83AFD7;
+	border:1px solid #83AFD7;
+}
+.times .m {
+	width:48px;
+	height: 48px;
+	line-height: 18px;
+	border:1px solid #ECECEE;
+	color:#1C84D3;
+	padding:5px;
+	font-size:18px;
+}
+.times .r1 {
+	color:#F8A681;
+	border:1px solid #F8A681;
+}
+.btn {
+	line-height: 42px;
+	border-radius: 42px;
+	background: #169BD5;
+	color:#fff;
+	font-size: 16px;
+	width:82%;
+	margin:24px auto;
+}

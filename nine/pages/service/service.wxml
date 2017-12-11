@@ -1,0 +1,29 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<image class="head-img" src="../../images/home/slide0.jpg"></image>
+	<view class="page-head flex">
+		<view class="middle"></view>
+		<picker class="province gray" mode='selector' range="{{provinces}}" bindchange="changeCity">{{city}}</picker>
+		<view class="rotate90 gray">></view>
+		<view class="middle"></view>
+	</view>
+	<block  wx:if="{{services.length>0}}">
+		<view class="body"  wx:for="{{services}}" wx:key="{{index}}">
+			<view class="title">{{item.city}}服务中心</view>
+			<view class="items">
+				<view class="item">
+					<view class="name line32"><image src="../../images/svg/province.png" class='svg'></image>{{item.name}}</view>
+					<view class="address line32" bindtap="goLocation" data-lon="{{item.lon}}" data-lat="{{item.lat}}"><image src="../../images/svg/pos.png" class='svg'></image>{{item.position}}</view>
+					<view class="flex line32">
+						<view class="person"><image src="../../images/svg/user.png" class='svg'></image>{{item.person}}</view>
+						<view class="tel" data-tel="{{item.phone}}" bindtap="call"><image src="../../images/svg/tel.png" class='svg'></image>{{item.phone}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<block wx:else>
+		<view class="noInfo" >没有查询到信息!</view>
+	</block>
+	
+</scroll-view>
+

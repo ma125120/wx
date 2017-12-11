@@ -1,0 +1,145 @@
+scroll-view {
+	min-height: 100%;
+}
+swiper {
+	height:240px;
+}
+.gray-block {
+	background: #F0EFF4;
+}
+.page-head {
+	margin:24px 12px 0;
+	color:#5D5B67;
+}
+.times {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size:15px;
+}
+.date {
+	font-size:18px;
+	color:#51515C;
+}
+.weekday {
+	color:#5D5B67;
+}
+.times .small {
+	width:16px;
+	height:16px;
+	line-height: 16px;
+	padding:2px;
+	font-size:10px;
+}
+.my {
+	margin:0 auto;
+  text-align:center;
+}
+.times .l2 {
+	color:#83AFD7;
+	border:1px solid #83AFD7;
+}
+.times .m {
+	width:36px;
+	height: 36px;
+	line-height: 18px;
+	border:1px solid #ECECEE;
+	color:#1C84D3;
+	padding:5px;
+	font-size:18px;
+}
+.times .r1 {
+	color:#F8A681;
+	border:1px solid #F8A681;
+}
+.l,.r {
+	color:#96949F;
+}
+.getWay .r {
+	text-align: left;
+}
+.money .r {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+.comment {
+	font-size:16px;
+	color:#000;
+}
+
+.foot {
+	width:92%;
+	margin:0 auto;
+}
+.foot .field {
+	border-bottom: 1px solid #999;
+}
+.foot .l {
+	font-size:14px;
+  vertical-align: middle;
+}
+
+.btns {
+	margin:24px auto;
+}
+.btn {
+	width:140px;
+	line-height: 42px;
+	background: #1C83D2;
+	color:#fff;
+	font-size: 14px;
+	border-radius: 5px;
+  margin:24px auto;
+}
+
+.titles {
+	font-size:15px;
+	margin: 16px auto;
+	color:#A1A1A1;
+	font-weight: bold;
+}
+.titles:before {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:100px;
+	height:1px;
+	background: #A1A1A1;
+	margin-right:10px;
+}
+.titles:after {
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	width:100px;
+	height:1px;
+	background: #A1A1A1;
+	margin-left:10px;
+}
+.radios {
+	display: flex;
+}
+.rp {
+	padding-right: 12px;
+}
+.radio {
+	display: flex;
+	align-items: center;
+}
+.radio image {
+	width:16px;
+	height:16px;
+	padding-right: 6px;
+}
+.arrow {
+	width:22px;
+	height:22px;
+	vertical-align: -4px;
+}
+.field .r {
+	padding-right:6px;
+}
+.foot {
+	background: #F2F2F2;
+}

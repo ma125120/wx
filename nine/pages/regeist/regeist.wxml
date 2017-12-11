@@ -1,0 +1,14 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+<form bindsubmit='nextBtn'>
+	<view class='first-form'>
+		<input type="number" class='block input' placeholder="电话"  name="phone" placeholder-class='place'  bindinput='setTel' />
+		<view class="tel-info">
+			<input type="number" class='block input' placeholder="验证码"  name="msgCode" placeholder-class='place' />
+			<button class="getCode block" bindtap='getCode' disabled="{{send}}">{{num}}</button>
+		</view>
+		<button form-type='submit' class='finish btn' disabled="{{disable1}}">下一步</button>
+	</view>
+</form>
+	
+</scroll-view>
+

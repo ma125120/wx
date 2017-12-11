@@ -1,0 +1,5 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<image class="no" src="../../images/home/no.jpg" mode='widthFix'></image>
+	<view class="tip">您目前还没有订单</view>
+</scroll-view>
+

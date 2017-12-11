@@ -1,0 +1,41 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head flex white">
+		<view class="head-right">
+			<image src="{{userInfo.avatarUrl}}"></image>
+		</view>
+		<view class="head-left">
+			<view class='nickname'>{{userInfo.nickName}}</view>
+			<navigator url="../info/info" class="iden">{{msg}}</navigator>
+			<!-- <view class="endTime">到期时间：2019-08-05</view> -->
+		</view>
+		
+	</view>
+	<view class="gray"></view>
+	
+	<view class="menus">
+		<view class="items">
+			<view class="item white {{index==3?'sep':''}}" wx:for="{{menus}}" wx:key="{{index}}" >
+				<navigator url="{{item.url}}" class='flex' wx:if="{{item.url}}">
+					<view class="my-left flex">
+						<image src="{{item.icon}}"></image>
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</navigator>
+				<view class='flex' wx:else bindtap="active">
+					<view class="my-left flex">
+						<image src="{{item.icon}}"></image>
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</scroll-view>
+

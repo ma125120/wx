@@ -1,0 +1,75 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+<form   bindsubmit='send_form'>
+	<view class="body">
+		<input type="text" class='block' value="{{companyInfo.name}}"  placeholder="单位名称:"  name="name" placeholder-class='place' />
+		<input type="text" class='block' value="{{companyInfo.industry}}" placeholder="行业:"  name="industry" placeholder-class='place' />
+		<view class="addr">
+			<picker class="block" mode='region' bindchange="changeCity">{{addr||companyInfo.addr||'地区:'}}</picker>
+			<image src='../../images/svg/arrow.png' class='addr-img'></image>
+		</view>
+		<input type="text" class='block' value="{{companyInfo.occupation}}"  placeholder="职务:"  name="occupation" placeholder-class='place' />
+		<view class="pics">
+			<block wx:if="{{!companyInfo}}">
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath2}}" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="2">
+						<view class="add-symbol">+</view>
+					</view>
+					<view class="text">*上传资质照片</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath1}}" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="1">
+						<view class="add-symbol">+</view>
+					</view>
+					<view class="text">*上传营业执照</view>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="pic">
+					<image class="none-pic" bindtap='chooseImg' data-i="2" src='{{companyInfo.qualifications}}'></image>
+					<view class="text">*上传资质照片</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" bindtap='chooseImg' data-i="1" src='{{companyInfo.license}}'></image>
+					<view class="text">*上传营业执照</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<button class="btn company"  form-type='submit' disabled="{{disable}}">企业认证</button>
+	<view class='foot'>完成企业认证，可获取黄金会员服务</view>
+
+</form>
+<!-- 	<view class="title">*上传营业执照</view>
+	<view class="head-pic">
+		<image class="none-pic" wx:if="{{picPath1}}" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+		<view class='my-pic' wx:else bindtap='chooseImg' data-i="1">
+			<view class="add-symbol">+</view>
+		</view>
+	</view>
+
+	<view class="title"></view>
+	<view class="pics">
+		<view class="pic">
+			<image class="none-pic" wx:if="{{picPath2}}" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+			<view class='my-pic' wx:else bindtap='chooseImg' data-i="2">
+				<view class="add-symbol">+</view>
+			</view>
+		</view>
+		<view class="pic">
+			<image class="none-pic" wx:if="{{picPath3}}" bindtap='chooseImg' data-i="3" src='{{picPath3}}'></image>
+			<view class='my-pic' wx:else bindtap='chooseImg' data-i="3">
+				<view class="add-symbol">+</view>
+			</view>
+		</view>
+		<view class="pic">
+			<image class="none-pic" wx:if="{{picPath4}}" bindtap='chooseImg' data-i="4" src='{{picPath4}}'></image>
+			<view class='my-pic' wx:else bindtap='chooseImg' data-i="4">
+				<view class="add-symbol">+</view>
+			</view>
+		</view>
+	</view> -->
+	
+</scroll-view>
+

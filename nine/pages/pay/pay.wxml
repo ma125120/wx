@@ -1,0 +1,108 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<!-- <view class="body">
+		<view class="line42">订单完善</view>
+		<view class="gray-block"></view>
+		<view class="line42 field flex bt">
+			<view class="l">取货方式</view>
+			<view class="r radios">
+				<view class="radio" data-type="self" catchtap="changeGetWay">
+					<image src="../../images/svg/{{getWay=='self'?'radio1':'radio'}}.png"></image>
+					<text class='rp'>自提</text>
+				</view>
+				<view class="radio" data-type="send" catchtap="changeGetWay">
+					<image src="../../images/svg/{{getWay=='send'?'radio1':'radio'}}.png"></image>
+					<text class='rp'>送货</text>
+				</view>
+			</view>
+		</view>
+		<block wx:if="{{sendFlag}}">
+			<view class="line42 field flex bt">
+				<view class="l">收货人</view>
+				<input type="text" class='r' value="{{contact.name}}" placeholder="请输入收货人姓名" placeholder-class='place' bindchange="changeContact" data-type="name"  />
+			</view>
+			<view class="line42 field flex bt">
+				<view class="l">收货电话</view>
+				<input type="text" class='r' value="{{contact.phone}}" placeholder="请输入收货电话" placeholder-class='place' bindchange="changeContact" data-type="phone" />
+			</view>	
+			<view class="line42 field flex bt">
+				<view class="l">收货地址</view>
+				<input type="text" class='r' value="{{contact.addr_pickup}}" placeholder="请输入收货地址" placeholder-class='place' bindchange="changeContact" data-type="addr_pickup" />
+			</view>
+			<view class="gray-block"></view>
+		</block>
+	</view> -->
+	<view class="foot">
+			<view class="green-title">费用清单</view>
+			<block wx:if="{{info.type!='RTK'}}">
+				<view class="line42 field money">
+					<view class="l">租赁费用</view>
+					<view class="r">
+						<view class="price" wx:if="{{info.type=='无人机'}}">￥{{info.models[0].price}}×{{km}}×{{num}}={{info.models[0].price*km*num}}</view>
+						<view class="price" wx:else>￥{{info.models[0].price}}×{{dateCount}}×{{num}}={{info.models[0].price*dateCount*num}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">{{info.type}}押金</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].deposit}}</view>
+					</view>
+				</view>
+				<view class="line42 field money">
+					<view class="l">服务费</view>
+					<view class="r">
+						<view class="price" wx:if="{{info.type=='无人机'}}">￥{{info.models[0].price*km*num}}××10%={{info.models[0].price*km*num*0.1}}</view>
+						<view class="price" wx:else>￥{{info.models[0].price*dateCount*num}}×10%={{info.models[0].price*dateCount*num*0.1}}</view>
+					</view>
+				</view>
+			</block>
+			<block wx:if="{{info.type=='RTK'}}">
+				<view class="line42 field money">
+					<view class="l">移动站</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].price}}×{{dateCount}}×{{num1}}={{info.models[0].price*dateCount*num1}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">基准站</view>
+					<view class="r">
+						<view class="price">￥{{info.models[1].price}}×{{dateCount}}×{{num2}}={{info.models[1].price*dateCount*num2}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">移动站押金</view>
+					<view class="r">
+						<!-- <view class="price" wx:if="{{num1>0}}">￥{{info.models[0].deposit}}×{{num1}}={{info.models[0].deposit*num1}}</view> -->
+						<view class="price" wx:if="{{num1>0}}">￥{{info.models[0].deposit}}</view>
+						<view class="price" wx:else>￥{{0}}</view>
+					</view>
+				</view>
+				
+				<view class="line42 field money">
+					<view class="l">基准站押金</view>
+					<view class="r">
+						<!-- <view class="price" wx:if="{{num2>0}}">￥{{info.models[1].deposit}}×{{num2}}={{info.models[1].deposit*num2}}</view> -->
+						<view class="price" wx:if="{{num2>0}}">￥{{info.models[1].deposit}}</view>
+						<view class="price" wx:else>￥{{0}}</view>
+					</view>
+				</view>
+				<view class="line42 field money">
+					<view class="l">服务费</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].price*dateCount*num1+info.models[1].price*dateCount*num2}}×10%={{(info.models[0].price*dateCount*num1+info.models[1].price*dateCount*num2)*0.1}}</view>
+					</view>
+				</view>
+			</block>
+			<view class="line42 field money bold">
+				<view class="l">费用总计</view>
+				<view class="r">
+					<view class="price">￥{{total}}</view>
+				</view>
+			</view>	
+		</view>
+		<view class="myComment">注:该价格为打折前的价格,实际价格以支付价格为准</view>
+
+	<view class="foot">
+		<button class="btn" bindtap="pay">确认支付</button>
+	</view>
+</scroll-view>
+

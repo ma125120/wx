@@ -1,0 +1,23 @@
+scroll-view {
+	min-height: 100vh;
+	background: #F2F2F2;
+	font-size:16px;
+}
+.body {
+	background: #fff;
+	border-radius: 10rpx;
+	width:96%;
+	margin:24rpx auto;
+}
+.title {
+	line-height: 100rpx;
+}
+.item {
+	line-height: 84rpx;
+}
+.lr-l {
+	color:#80807E;
+}
+.title .num {
+	color:#FAB01E;
+}

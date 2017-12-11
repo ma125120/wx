@@ -1,0 +1,26 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+   <image class="bg" src="../../images/bg.jpg"></image>
+	<form bindsubmit='readySend'>
+		
+		<view class="bg-modal bg"></view>
+		<view class="body">
+			<view class="addr">
+				<picker class="block" mode='region' bindchange="changeCity">{{city||'所在地区'}}</picker>
+				<!-- <input type="text" class='block' placeholder="所在地区"  name="address" placeholder-class='place' /> -->
+				<image src='../../images/svg/arrow.png' class='addr-img'></image>
+			</view>
+			
+			<input type="text" class='block' placeholder="公司名字"  name="name" placeholder-class='place' />
+			<view class="addr">
+				<view class="block" bindtap="chooseAddr">{{sendData.position||'公司地址'}}</view>
+				<image src='../../images/svg/arrow.png' class='addr-img'></image>
+			</view>
+			<!-- <input type="text" class='block' placeholder="公司地址"  name="companyAddr" placeholder-class='place' /> -->
+			<input type="text" class='block' placeholder="联系人"  name="person" placeholder-class='place' />
+			<input type="text" class='block' placeholder="联系电话"  name="phone" placeholder-class='place' />
+			<button form-type='submit' class='btn' disabled="{{disable}}">提交</button>
+		</view>
+	</form>
+	
+</scroll-view>
+

@@ -1,0 +1,29 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="balance flex line36">
+		<view class="lr-l">
+			<view class="title">账户余额:0.00</view>
+		</view>
+		<view class="lr-r">
+			<image src='../../images/svg/arrow.png' class='arrow'></image>
+		</view>
+	</view>
+	<view class="balance line36">
+		<view class="item flex bt">
+			<view class="lr-l">
+				<view class="title">充值</view>
+			</view>
+			<view class="lr-r">
+				<image src='../../images/svg/arrow.png' class='arrow'></image>
+			</view>
+		</view>
+		<view class="item flex">
+			<view class="lr-l">
+				<view class="title">支付密码<text class="gray">(未设置)</text></view>
+			</view>
+			<view class="lr-r">
+				<image src='../../images/svg/arrow.png' class='arrow'></image>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

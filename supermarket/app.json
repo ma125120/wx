@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/redPacket/redPacket",
+    "pages/shell/shell",
+    "pages/shop/shop",
+    "pages/wallet/wallet",
+    "pages/moneyDetail/moneyDetail",
+    "pages/myAddress/myAddress",
+    "pages/myOrder/myOrder",
+    "pages/myShell/myShell",
+    "pages/openShop/openShop",
+    "pages/suggest/suggest"
+  ],
+  "window":{
+    "backgroundTextStyle":"black",
+    "navigationBarBackgroundColor": "#FEDF39",
+    "navigationBarTitleText": "商城",
+    "navigationBarTextStyle":"#fff"
+  },
+  "debug":false,
+  "tabBar":{
+    "color":"#121212",
+    "selectedColor":"#FEDF39",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"闪送超市",
+      "iconPath":"images/tab/home0.png",
+      "selectedIconPath":"images/tab/home1.png"
+    },{
+      "pagePath":"pages/cart/cart",
+      "text":"购物车",
+      "iconPath":"images/tab/cart0.png",
+      "selectedIconPath":"images/tab/cart1.png"
+    },{
+      "pagePath":"pages/my/my",
+      "text":"我的账户",
+      "iconPath":"images/tab/my0.png",
+      "selectedIconPath":"images/tab/my1.png"
+    }]
+  }
+}

@@ -1,0 +1,75 @@
+scroll-view {
+	min-height: 100%;
+}
+.page-head {
+	padding:0 5%;
+	border-bottom: 1px solid #999999;
+}
+.head {
+	margin-top:6px;
+}
+.l {
+	width:49%;
+	text-align: left;
+}
+.foot .field {
+	border-bottom: 1px solid #999;
+}
+.r {
+	flex:1;
+	text-align: right;
+}
+
+.page-body {
+	width:72%;
+	margin:0 auto;
+	color:#797979;
+	font-size:12px;
+}
+.item {
+	display: flex;
+	border-bottom: 1px solid #ddd;
+}
+
+.btn {
+	margin:32px auto 24px;
+	width:90%;
+	line-height: 36px;
+	border-radius: 36px;
+	font-size:14px;
+	color:#fff;
+	background: #00CC33;
+}
+.cart {
+	line-height: 48px;
+	font-size:18px;
+	padding:0 12px;
+}
+.foot {
+	position: fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	z-index:2000;
+	background: #F2F2F2;
+	line-height: 48px;
+	display: flex;
+}
+.foot .left {
+	flex:1;
+	display: flex;
+}
+.foot .check-img {
+	align-self: center;
+	padding-left:12px;
+}
+.text {
+	padding: 0 12px;
+}
+.submit-btn {
+	width:140px;
+	color:#fff;
+	background: #169BD5;
+	line-height: 48px;
+	border-radius: 0;
+}

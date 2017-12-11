@@ -1,0 +1,30 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="bags">
+		<view class="bag">
+			<view class="top-block"></view>
+			<view class="flex">
+				<view class="l">
+					<view class="prices flex">
+						<view class="price-symbol">￥</view>
+						<view class="price">5</view>
+					</view>
+					<view class="price-comment">满30元可使用</view>
+				</view>
+				<view class="r">
+					<view class="t flex">
+						<view class="left title">注册送5元红包</view>
+						<view class="right use">去使用</view>
+					</view>
+					<view class="middle price-comment">
+						仅限购买超市频道部分商品
+					</view>
+					<view class="b flex">
+						<view class="left time">2017.11.27-2017.12.12</view>
+						<view class="right">详情</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>	
+</scroll-view>
+

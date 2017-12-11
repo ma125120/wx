@@ -1,0 +1,15 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="info">
+		<view class="number">0</view>
+		<view class="txt">可用贝壳总数:</view>
+	</view>
+	<navigator url='../myShell/myShell' class="item flex bt">
+			<view class="lr-l">
+				<view class="title">贝壳使用明细</view>
+			</view>
+			<view class="lr-r">
+				<image src='../../images/svg/arrow.png' class='arrow'></image>
+			</view>
+	</navigator>
+</scroll-view>
+

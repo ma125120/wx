@@ -1,0 +1,157 @@
+.arrow {
+	width:32rpx;
+	height: 32rpx;
+}
+.logo {
+	width:112rpx;
+	height: 112rpx;
+	padding:0 12rpx;
+}
+.page-head {
+	background: #FEDF39;
+}
+.page-head .flex {
+	padding:12rpx;
+}
+.title {
+	line-height: 72rpx;
+}
+.labels {
+	font-size:12px;
+	line-height: 52rpx;
+}
+.page-head .m {
+	padding-left:24rpx;
+}
+.label1 {
+	padding-right:24rpx;
+	border-right: 1px solid #B19D2C;
+}
+.label2 {
+	padding-left:24rpx;
+}
+.page-head .r {
+	align-self: flex-end;
+	flex:1;
+	text-align: right;
+}
+
+/*一二级列表*/
+.shops {
+	font-size:12px;
+}
+.first {
+	width:180rpx;
+	border-right:1px solid #EAEAE8;
+	height:1000rpx;
+	overflow-y: auto;
+}
+.item1 {
+	padding:0 24rpx;
+	margin:12rpx auto;
+	height:72rpx;
+	line-height: 72rpx;
+}
+.item1.active {
+	background: #FDE770;
+	
+	border-top-right-radius: 72rpx;
+	border-bottom-right-radius: 72rpx;
+}
+.second {
+	flex:1;
+}
+.filters {
+	line-height: 72rpx;
+	border-bottom: 1px solid #EAEAE8;
+}
+.bt-arrow {
+	width:50%;
+	text-align: center;
+}
+.bt-arrow:after {
+	content:'';
+	display: inline-flex;
+	border-top:12rpx solid #999;
+	border-left:12rpx solid transparent;
+	border-right:12rpx solid transparent;
+	margin-left:12rpx;
+}
+.shop {
+	border-bottom: 1px solid #F0F0F0;
+}
+.shop .l {
+	width:80rpx;
+	height: 128rpx;
+	padding-right: 60rpx;
+}
+.shop .r {
+	flex:1;
+}
+.name {
+	font-size: 18px;
+	text-align: left;
+}
+.bottom {
+	width:100%;
+}
+.shop {
+	padding:24rpx;
+}
+.price {
+	line-height: 96rpx;
+	font-size: 16px;
+	color:#F16533;
+	flex:1;
+}
+.add {
+	font-size:96rpx;
+	line-height: 64rpx;
+	width:64rpx;
+	height: 64rpx;
+	border:1px solid #F6E073;
+	color: #F6E073;
+	border-radius: 50%;
+	text-align: center;
+}
+.types {
+	position: absolute;
+	z-index:10;
+}
+.types-content {
+	background: #fff;
+	width:580rpx;
+	color:#333;
+	/*display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;*/
+}
+.type {
+	border-radius: 10rpx;
+	display: inline-block;
+	vertical-align: middle;
+	width:24%;
+	margin:12rpx 24rpx;
+	line-height: 48rpx;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+.detail {
+	padding:0 48rpx;
+}
+.titles {
+	margin:0 auto;
+	text-align: center;
+}
+.bodys {
+	font-size: 12px;
+	line-height: 48rpx;
+}
+.notice {
+	background: #FEA900;
+	color:#fff;
+	font-size:12px;
+	line-height: 48rpx;
+	padding-left: 12rpx;
+}

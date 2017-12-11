@@ -1,0 +1,30 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<image class="top-img" src="{{shop.src}}" mode="widthFix"></image>
+	<view class="info">
+		<view class="title">{{shop.name}}</view>
+		<view class="price">￥{{shop.price}}</view>
+		<view class="brands flex">
+			<view class="brand lr-l">品牌：北欧全</view>
+			<view class="size lr-r">规格：1/个</view>
+		</view>
+	</view>
+
+	<view class="shop-info flex">
+		<image src="../../images/my/cart.png" class='l'></image>
+		<view class="r">
+			<view class="title1">倍全景观360点</view>
+			<view class="times">营业时间：09:00-23:00</view>
+		</view>
+	</view>
+	<view class="notice">向上拖动可查看图文详情</view>
+</scroll-view>
+<view class="fixed flex">
+	<view class="lr-l flex">
+		<view>添加商品:</view>
+		<view class="del" bindtap="delNum">-</view>
+		<view class="num">{{shop.num||0}}</view>
+		<view class="add" bindtap="addNum">+</view>
+	</view>
+	<view class="lr-r"  bindtap="addToCart">购物车</view>
+</view>
+

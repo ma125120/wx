@@ -1,0 +1,35 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+<form  bindsubmit='send_form'>
+	<view class="body">
+		<input type="text" class='block' value="{{RealNameInfo.name}}" placeholder="姓名"  name="name" placeholder-class='place'  />
+		<input type="number" class='block' value="{{RealNameInfo.ID_CODE}}"  placeholder="身份证号"  name="ID_CODE" placeholder-class='place' />
+		<!-- <input type="text" class='block input' placeholder="电话"  name="tel" placeholder-class='place'  bindinput='setTel' />
+		<view class="tel-info">
+			<input type="text" class='block input' placeholder="验证码"  name="code" placeholder-class='place' />
+			<button class="getCode block" bindtap='getCode' disabled="{{send}}">{{num}}</button>
+		</view> -->
+		<!-- <input type="text" class='block' placeholder="验证码"  name="code" placeholder-class='place' /> -->
+	
+		<view class="title">实名认证：</view>
+		<view class="pics">
+			<view class="pic">
+				<image class="none-pic" wx:if="{{picPath1}}" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+				<view class='my-pic' wx:else bindtap='chooseImg' data-i="1">
+					<view class="add-symbol">+</view>
+				</view>
+				<view class="text">身份证正面</view>
+			</view>
+			<view class="pic">
+				<image class="none-pic" wx:if="{{picPath2}}" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+				<view class='my-pic' wx:else bindtap='chooseImg' data-i="2">
+					<view class="add-symbol">+</view>
+				</view>
+				<view class="text">身份证反面</view>
+			</view>
+		</view>
+		<button form-type='submit' class='finish btn' disabled="{{isRealName}}">完成认证</button>
+	</view>
+</form>
+	
+</scroll-view>
+

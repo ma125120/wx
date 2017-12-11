@@ -1,0 +1,239 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="page-head">
+		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+			<swiper-item wx:for="{{info.imgs1}}" wx:key="{{index}}">
+				<!-- <image src="{{item.pic}}"></image> -->
+				<image src="{{item}}"></image>
+			</swiper-item>
+		</swiper>
+
+		<view class="titles">{{info.name}}</view>
+
+		<view class="times flex"  wx:if="{{info.type!='无人机'}}">
+				<picker mode='multiSelector' bindcolumnchange="changeColumn"  range="{{dateArray}}" range-key="name" class="l1 text-left line28" value="{{start}}"  bindchange="changeTime">
+					<view class="date">{{dateObj.dateArray[0][start[0]].count}}-{{dateObj.dateArray[1][start[1]].count}}</view>
+					<view mode='time' class="weeekday">{{weekdays[startDay]}}{{dateObj.dateArray[2][start[2]].name}}</view>
+				</picker>
+				<view class="l2 circle small">取</view>
+				<view class="m circle">
+					<view class="my">{{dateCount}}天</view>
+				</view>
+				<view class="r1 circle small">还</view>
+				<picker mode='multiSelector' bindcolumnchange="changeColumn"  range="{{dateArray}}" range-key="name" class="r2  text-right line28" value="{{end}}" bindchange="changeTime1">
+					<view class="date">{{dateObj.dateArray[0][end[0]].count}}-{{dateObj.dateArray[1][end[1]].count}}</view>
+					<view mode='time' class="weeekday">{{weekdays[endDay]}}{{dateObj.dateArray[2][end[2]].name}}</view>
+				</picker>
+		</view>
+		<view class="gray-block"></view>
+		
+
+		<view class="other border-top line42">
+			<view class="other-l">
+				<view class="title2">库存数量</view>
+			</view>
+			<view class="other-r">{{info.models[0].surplus}}</view>
+		</view>
+		<view class="other border-top line42">
+			<view class="other-l my-l">
+				<view class="title2">地址</view>
+			</view>
+			<view class="other-r my-r">{{info.position}}</view>
+		</view>
+	</view>
+	
+	<view class="page-body">
+		<view class="time-picker" wx:if="{{info.type=='无人机'}}">
+			<view class="line42 field flex">
+				<view class="l">预付公里</view>
+				<picker mode='selector' range="{{dates}}" range-key="name" class="r" bindchange="changeKm">{{km}}公里<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+			</view>
+			<view class="gray-block"></view>
+			<view class="line42 field flex">
+				<view class="l">收费标准</view>
+				<view class="r">每公里{{info.models[0].price}}元</view>
+			</view>
+			<view class="gray-block"></view>
+			<view class="line42 field flex">
+				<view class="l">使用期限</view>
+				<view class="r">{{dateCount}}天</view>
+			</view>
+		</view>
+		<view class="gray-block"></view>
+		<view class="line42 field flex" wx:if="{{info.type!='RTK'}}">
+			<view class="l">租赁数量</view>
+			<picker class='r' mode="selector" range="{{numArray}}" bindchange="changeNum">{{num}}台<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+		</view>
+		<block wx:if="{{info.type=='RTK'}}">
+			<view class="line42 field">
+				<view class="l">移动站</view>
+				<picker class='r' mode="selector" range="{{numArray}}" bindchange="changeNum1">{{num1}}台<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+			</view>
+			<view class="gray-block"></view>
+			<view class="line42 field">
+				<view class="l">基准站</view>
+				<picker  class='r' mode="selector" range="{{numArray}}" bindchange="changeNum2">{{num2}}台<image src='../../images/svg/arrow.png' class='arrow'></image></picker>
+				<!-- <view class="r">{{info.models[2].num}}台</view> -->
+			</view>
+		</block>
+		
+		<!-- <view class="gray-block"></view>
+		<view class="line42 field money">
+			<view class="l" wx:if="{{info.type=='无人机'}}">租赁费用</view>
+			<view class="l" wx:else>每日租金</view>
+			<view class="r">
+				<view class="symbol">￥</view>
+				<view class="price" wx:if="{{info.type=='无人机'}}">{{info.models[0].price*km*num}}</view>
+				<view class="price" wx:if="{{info.type=='RTK'}}">{{info.models[0].price*(num1+num2)}}</view>
+				<view class="price" wx:if="{{info.type!='RTK'&&info.type!='无人机'}}">{{info.models[0].price*num}}</view>
+				<view class="comment" wx:if="{{info.type!='无人机'}}">元/台</view>
+			</view>
+		</view> -->
+
+	</view>
+	<view class="gray-block"></view>
+	<view class="line42 field flex bt">
+			<view class="l">取货方式</view>
+			<view class="r radios">
+				<view class="radio" data-type="self" catchtap="changeGetWay">
+					<image src="../../images/svg/{{wayCode==4280?'radio1':'radio'}}.png"></image>
+					<text class='rp'>自提</text>
+				</view>
+				<view class="radio" data-type="send" catchtap="changeGetWay">
+					<image src="../../images/svg/{{wayCode==4281?'radio1':'radio'}}.png"></image>
+					<text class='rp'>送货</text>
+				</view>
+			</view>
+		</view>
+		<view class="line42 field flex bt">
+					<view class="l">收货人</view>
+					<input type="text" class='r' value="{{contact.name}}" placeholder="请输入收货人姓名" placeholder-class='place' bindchange="changeContact" data-type="name"  />
+			</view>
+			<view class="line42 field flex bt">
+					<view class="l">收货电话</view>
+					<input type="text" class='r' value="{{contact.phone}}" placeholder="请输入收货电话" placeholder-class='place' bindchange="changeContact" data-type="phone" />
+			</view>	
+	<block wx:if="{{getWay=='send'}}">
+			<view class="line42 field flex ">
+					<view class="l">收货地址</view>
+					<input type="text" class='r' value="{{contact.addr_pickup}}" placeholder="请输入收货地址" placeholder-class='place' bindchange="changeContact" data-type="addr_pickup" />
+			</view>
+			<view class="gray-block"></view>
+		</block>
+	<view class="gray-block"></view>
+	<view class="page-foot">
+		<view class="foot">
+			<view class="green-title">费用清单</view>
+			<block wx:if="{{info.type!='RTK'}}">
+				<view class="line42 field money">
+					<view class="l">租赁费用</view>
+					<view class="r">
+						<view class="price" wx:if="{{info.type=='无人机'}}">￥{{info.models[0].price}}×{{km}}×{{num}}={{info.models[0].price*km*num}}</view>
+						<view class="price" wx:else>￥{{info.models[0].price}}×{{dateCount}}×{{num}}={{info.models[0].price*dateCount*num}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">服务费</view>
+					<view class="r">
+						<view class="price" wx:if="{{info.type=='无人机'}}">￥{{info.models[0].price*km*num}}××10%={{info.models[0].price*km*num*0.1}}</view>
+						<view class="price" wx:else>￥{{info.models[0].price*dateCount*num}}×10%={{info.models[0].price*dateCount*num*0.1}}</view>
+					</view>
+				</view>
+				<view class="line42 field money">
+					<view class="l">{{info.type}}押金</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].deposit}}</view>
+					</view>
+				</view>
+				
+			</block>
+			<block wx:if="{{info.type=='RTK'}}">
+				<view class="line42 field money">
+					<view class="l">移动站</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].price}}×{{dateCount}}×{{num1}}={{info.models[0].price*dateCount*num1}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">基准站</view>
+					<view class="r">
+						<view class="price">￥{{info.models[1].price}}×{{dateCount}}×{{num2}}={{info.models[1].price*dateCount*num2}}</view>
+					</view>
+				</view>
+				<view class="line42 field money">
+					<view class="l">服务费</view>
+					<view class="r">
+						<view class="price">￥{{info.models[0].price*dateCount*num1+info.models[1].price*dateCount*num2}}×10%={{(info.models[0].price*dateCount*num1+info.models[1].price*dateCount*num2)*0.1}}</view>
+					</view>
+				</view>	
+				<view class="line42 field money">
+					<view class="l">移动站押金</view>
+					<view class="r">
+						<!-- <view class="price" wx:if="{{num1>0}}">￥{{info.models[0].deposit}}×{{num1}}={{info.models[0].deposit*num1}}</view> -->
+						<view class="price" wx:if="{{num1>0}}">￥{{info.models[0].deposit}}</view>
+						<view class="price" wx:else>￥{{0}}</view>
+					</view>
+				</view>
+				
+				<view class="line42 field money">
+					<view class="l">基准站押金</view>
+					<view class="r">
+						<!-- <view class="price" wx:if="{{num2>0}}">￥{{info.models[1].deposit}}×{{num2}}={{info.models[1].deposit*num2}}</view> -->
+						<view class="price" wx:if="{{num2>0}}">￥{{info.models[1].deposit}}</view>
+						<view class="price" wx:else>￥{{0}}</view>
+					</view>
+				</view>
+				
+			</block>
+			<view class="line42 field money bold">
+				<view class="l">费用总计</view>
+				<view class="r">
+					<view class="price">￥{{total}}</view>
+				</view>
+			</view>	
+		</view>
+		<view class="myComment">注:该价格为打折前的价格,实际价格以支付价格为准</view>
+		<view class="other border-top line42">
+			<view class="other-l">
+				<view class="title2" bindtap="display" data-type="isIntro">仪器介绍:{{info.intro}}</view>
+				<view class="content  {{isIntro?'':'hide'}}">{{info.note}}</view>
+			</view>
+			<view class="other-r"><image src='../../images/svg/arrow.png' class='arrow rotate90'></image></view>
+		</view>
+		<view class="other border-top line42">	
+			<view class="other-l">
+				<view class="title2" bindtap="display" data-type="isConfig">配置详情：这里是配置清单。</view>
+				<view class="option {{isConfig?'':'hide'}}">
+						<view class="table">
+							<view class="tr">
+								<view class="td td1">产品名称</view>
+								<view class="td td2">数量</view>
+								<view class="td td3">单位</view>
+							</view>
+							<view class="tr" wx:for="{{info.configure}}" wx:key="{{index}}"  wx:for-index="idx" wx:for-item="v" >
+								<view class="td1 td">
+									<view>{{v.name}}</view>
+								</view>
+								<view class="td2 td">
+									<view>{{v.num}}</view>
+								</view>
+								<view class="td3 td">
+									<view>{{v.unit}}</view>
+								</view>
+							</view>
+						</view>
+					</view>
+			</view>
+			
+			<view class="other-r"><image src='../../images/svg/arrow.png' class='arrow rotate90'></image></view>
+		</view>
+	</view>
+
+</scroll-view>
+
+<view class="btns flex my-fixed">
+	<view class="btn" bindtap="addCart">加入购物车</view>
+	<view class="btn" bindtap="createOrder">提交订单</view>
+	<!-- <navigator url='../pay/pay' class="btn">提交订单</navigator> -->
+</view>
+
+

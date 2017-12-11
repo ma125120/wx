@@ -1,0 +1,21 @@
+scroll-view {
+	min-height: 100%;
+	background: linear-gradient(#FBFBFC,#3C0B6C);
+}
+.head {
+	margin-top: 54px;
+}
+.img {
+	width:319px;
+	height: 197px;
+	margin:0 auto 12px;
+}
+.btn {
+	margin:88px auto 24px;
+	width:200px;
+	line-height: 36px;
+	font-size:14px;
+	color:#fff;
+	background: #FF6633;
+	border-radius: 36px;
+}

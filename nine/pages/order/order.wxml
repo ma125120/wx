@@ -1,0 +1,41 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="tab flex">
+		<view class="l {{active_i==0?'active':''}}" bindtap="changeTab" data-i="0">出租订单</view>
+		<view class="m"></view>
+		<view class="r {{active_i==1?'active':''}}" bindtap="changeTab" data-i="1">租赁订单</view>
+	</view>
+
+	<view class="body">
+		<view class="items" wx:if="{{infos.length>0}}">
+			<!-- <navigator data-obj="{{item}}" url="../{{nav}}/{{nav}}?LUID={{item.LUID}}" class="item" wx:for="{{infos}}" wx:key="{{index}}"> -->
+			<view data-obj="{{item}}" catchtap="goto" class="item" wx:for="{{infos}}" wx:key="{{index}}">
+				<view class="head">
+					<view class="l">{{item.name}}</view>
+					<view class="r">{{item.status==4280?'未支付':'已完成'}}></view>
+				</view>
+				<view class="content">
+					<view class="detail"><image src="../../images/svg/time.png" class='time-img'></image>{{item.date_start}} 00:00 到 {{item.date_end}} 23:59</view>
+					<view class="detail"><text class="addr-cir cir"></text>{{item.addr||'自提'}} <text class=''>{{item.hostAddr}}</text></view>
+					<view class="detail"><text class="pay-cir cir"></text>RMB:{{item.total}}</view>
+				</view>
+				<view class="call" catchtap="call" data-tel="{{item.tel}}" wx:if="{{active_i==0&&item.status!=4280}}">
+					<image src="../../images/call.png" class='call-img'></image>
+				</view>
+				<view class="call" catchtap="call" data-tel="{{item.hostTel}}" wx:if="{{active_i==1&&item.status!=4280}}">
+					<image src="../../images/call.png" class='call-img'></image>
+				</view>
+			</view>
+		</view>
+		<view wx:else class='noInfo'>
+			<image src="../../images/svg/noOrder.png" class='no-order'></image>
+			<view class="tip">没有查询到订单!</view>
+		</view>
+	</view>
+</scroll-view>
+
+	<view class="toast" wx:if="{{toast}}">
+		<view class="toast-wrap">
+			<view class="toast-icon">!</view>
+			<view class="toast-title">{{toastTitle||'认证失败'}}</view>
+		</view>
+	</view>

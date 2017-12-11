@@ -1,0 +1,131 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.6",
+	"appid": "wx63b390f4aa922b51",
+	"projectname": "nine2",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "services",
+					"pathName": "pages/service/service",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我要租赁",
+					"pathName": "pages/wantRented/wantRented",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我要出租",
+					"pathName": "pages/wantRent/wantRent",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加信息",
+					"pathName": "pages/addInfo/addInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "企业认证",
+					"pathName": "pages/company/company",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "仪器详情",
+					"pathName": "pages/device/device",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "我的出租",
+					"pathName": "pages/my_rent/my_rent",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的租赁",
+					"pathName": "pages/myOrder/myOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/myCart/myCart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "vip",
+					"pathName": "pages/vip/vip",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付界面",
+					"pathName": "pages/pay/pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "加盟",
+					"pathName": "pages/join/join",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "增票资质",
+					"pathName": "pages/ticket/ticket",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/my_address/my_address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/order",
+					"query": ""
+				}
+			]
+		}
+	}
+}

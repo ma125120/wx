@@ -1,0 +1,35 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+<form   bindsubmit='send_form'>
+	<view class="body">
+		<view class="field">
+			<view class="left">单位名称</view>
+			<input type="text" class='block' value="{{ticketInfo.unit}}" placeholder="必填"  name="unit" placeholder-class='place' />
+		</view>
+		<view class="field">
+			<view class="left">纳税人识别码</view>
+			<input type="text" class='block' value="{{ticketInfo.code}}" placeholder="必填"  name="code" placeholder-class='place' />
+		</view>
+		<view class="field">
+			<view class="left">注册地址</view>
+			<input type="text" class='block' value="{{ticketInfo.addr}}" placeholder="必填"  name="addr" placeholder-class='place' />
+		</view>
+		<view class="field">
+			<view class="left">注册电话</view>
+			<input type="number" class='block' value="{{ticketInfo.phone}}" placeholder="必填"  name="phone" placeholder-class='place' />
+		</view>
+		<view class="field">
+			<view class="left">开户银行</view>
+			<input type="text" class='block' value="{{ticketInfo.bank}}" placeholder="必填"  name="bank" placeholder-class='place' />
+		</view>
+		<view class="field">
+			<view class="left">银行账户</view>
+			<input type="text" class='block' value="{{ticketInfo.bank_account}}" placeholder="必填"  name="bank_account" placeholder-class='place' />
+		</view>
+	</view>
+	<view class="footer">
+		<button class="btn company"  form-type='submit' disabled="{{disable}}">提交</button>
+	</view>
+	
+</form>
+</scroll-view>
+

@@ -1,0 +1,37 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<image src="{{my_img}}" class='head-img'></image>
+	<view class="head-title">
+		<view>以下车辆供您选择</view>
+		<navigator url='../notice/notice'>使用前请先查看<text class="black">《平台使用须知》</text></navigator>
+	</view>
+
+	<view class="body">
+		<view class="wu" wx:if="{{cars.length==0}}">没有查询到数据！</view>
+		<view class="items" wx:else>
+			<view class="item"  wx:for="{{cars}}" wx:key="{{index}}">
+				<view  data-url="../carInfo/carInfo?id={{item.RUID}}" bindtap='nav'>
+					<view class="wrap-img">
+						<image src="{{item.img1}}" mode='widthFix' class='v_m'></image>
+					</view>
+					<view class="title">{{item.name}}</view>
+					<view class="bottom">
+						<view class="btn" style="padding:{{item.seat<10?'3px 10px':'3px 8px'}}">{{item.seat}}座</view>
+						<view class="btn" style="padding:{{item.type.length<=3?'3px 8px':'4px 4px'}}">{{item.type}}</view>
+						<view class="distance" bindtap='toLocation'>{{item.distance}}km</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="pages">
+				<view class="btn prev {{page==1?'disable1':''}}" bindtap="prev">上一页</view>
+				<!-- <view class="dian pageNum" wx:if="{{pageList[0]!=1}}">···</view>
+				<block wx:for="{{pageList}}" wx:key="{{index}}">
+					<view class="pageNum {{item==page?'active':''}}" bindtap="fenye" data-num="{{item}}">{{item}}</view>
+				</block>
+				<view class="dian pageNum" wx:if="{{page<=(pageCount-2)}}">···</view> -->
+				<view class="btn next {{can?'':'disable1'}}" bindtap="next">下一页</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

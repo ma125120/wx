@@ -1,0 +1,28 @@
+page,
+.main {
+	height:100%;
+}
+.none {
+	width:100%;
+	background: #F2F2F2;
+	line-height: 88rpx;
+	text-align: center;
+}
+.add_new {
+	position: fixed;
+	bottom:0;
+}
+.addr {
+	background: #F2F2F2;
+	text-align: left;
+	padding-left:40rpx;
+}
+.top {
+	font-size:30rpx;
+	padding:20rpx 0 10rpx 0;
+}
+.bot {
+	font-size:26rpx;
+	color:#888;
+	padding-bottom:20rpx;
+}

@@ -1,0 +1,139 @@
+<import src="../pic.wxml"/>
+
+<view class="cropper-wrapper  {{cutting?'':'hide'}}">
+    <template is="weCropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="exit"
+                bindtap="exit">取消</view>
+        <view
+                class="sure"
+                bindtap="sure">确定</view>
+    </view>
+    <view class="my-black"></view>
+</view>
+
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="page-head">
+		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+			<swiper-item wx:for="{{info.imgs1}}" wx:key="{{index}}">
+				<!-- <image src="{{item.pic}}"></image> -->
+				<image src="{{item}}"></image>
+			</swiper-item>
+		</swiper>
+
+		<view class="titles">{{info.type}}</view>
+
+		
+		<view class="times flex"  wx:if="{{info.type!='无人机'}}">
+				<view class="l1 text-left line28">
+					<picker mode='date' class="date" bindchange="changeDate">{{startDate}}</picker>
+					<picker mode='time' class="weeekday" bindchange="changeTime">{{weekdays[startDay-1]}}{{startTime}}</picker>
+				</view>
+				<view class="l2 circle small">取</view>
+				<view class="m circle">
+					<view>{{dateCount}}</view>
+					<view class="my">天</view>
+				</view>
+				<view class="r1 circle small">还</view>
+				<view class="r2  text-right line28">
+					<picker mode='date' class="date" bindchange="changeDate1">{{endDate}}</picker>
+					<picker mode='time' class="weeekday" bindchange="changeTime1">{{weekdays[endDay-1]}}{{endTime}}</picker>
+				</view>
+			</view>
+
+		<view class="other border-top line42">
+			<view class="other-l">
+				<view class="title2" bindtap="display" data-type="isIntro">{{info.intro}}</view>
+				<view class="content  {{isIntro?'':'hide'}}">{{info.note}}</view>
+			</view>
+			<view class="other-r"><image src='../../images/svg/arrow.png' class='arrow rotate90'></image></view>
+		</view>
+		<view class="other border-top line42">	
+			<view class="other-l">
+				<view class="title2" bindtap="display" data-type="isConfig">配置详情：这里是配置清单。</view>
+				<view class="option {{isConfig?'':'hide'}}">
+						<view class="table">
+							<view class="tr">
+								<view class="td td1">产品名称</view>
+								<view class="td td2">数量</view>
+								<view class="td td3">单位</view>
+							</view>
+							<view class="tr" wx:for="{{info.configure}}" wx:key="{{index}}"  wx:for-index="idx" wx:for-item="v" >
+								<view class="td1 td">
+									<view>{{v.name}}</view>
+								</view>
+								<view class="td2 td">
+									<view>{{v.num}}</view>
+								</view>
+								<view class="td3 td">
+									<view>{{v.unit}}</view>
+								</view>
+							</view>
+						</view>
+					</view>
+			</view>
+			
+			<view class="other-r"><image src='../../images/svg/arrow.png' class='arrow rotate90'></image></view>
+		</view>
+	</view>
+	
+	<view class="page-body">
+		<view class="gray-block"></view>
+		<view class="time-picker" wx:if="{{info.type=='无人机'}}">
+			<view class="line42 field flex">
+				<view class="l">收费标准</view>
+				<picker mode='selector' range="{{dates}}" range-key="name" class="r" bindchange="changeDateCount">{{dateCount}}公里</picker>
+			</view>
+		</view>
+		<view class="gray-block"></view>
+		<view class="line42 field flex">
+			<view class="l">租赁数量</view>
+			<input type="number" class='r' value="{{num}}" placeholder="请输入数量" placeholder-class='place' bindchange="changeNum" />台
+		</view>
+		<block wx:if="{{info.type=='RKT'}}">
+			<view class="gray-block"></view>
+			<view class="line42 field">
+				<view class="l">移动站</view>
+				<input type="number" class='r' value="{{info.models[1].num}}" placeholder="请输入数量" placeholder-class='place' bindchange="changeNum1" />台
+				<!-- <view class="r">{{info.models[1].num}}台</view> -->
+			</view>
+
+			<view class="gray-block"></view>
+			<view class="line42 field">
+				<view class="l">基准站</view>
+				<input type="number" class='r' value="{{info.models[2].num}}" placeholder="请输入数量" placeholder-class='place' bindchange="changeNum2" />台
+				<!-- <view class="r">{{info.models[2].num}}台</view> -->
+			</view>
+			<view class="gray-block"></view>
+		</block>
+	</view>
+	<view class="page-foot border-top">
+		<view class="pics">
+			<view class="title line42">上传仪器照片</view>
+			<view class="pics flex">
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath1}}" bindtap='chooseImg' data-i="1" src='{{picPath1}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="1">+
+					</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath2}}" bindtap='chooseImg' data-i="2" src='{{picPath2}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="2">+</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath3}}" bindtap='chooseImg' data-i="3" src='{{picPath3}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="3">+
+					</view>
+				</view>
+				<view class="pic">
+					<image class="none-pic" wx:if="{{picPath4}}" bindtap='chooseImg' data-i="4" src='{{picPath4}}'></image>
+					<view class='my-pic' wx:else bindtap='chooseImg' data-i="4">+</view>
+				</view>
+			</view>
+		</view>
+		<view class="btn">收货确认</view>
+	</view>
+
+		
+</scroll-view>

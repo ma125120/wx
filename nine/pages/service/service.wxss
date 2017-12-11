@@ -1,0 +1,52 @@
+.main {
+	width:100%;
+	overflow-x: hidden;
+	background:#F4F4F4;
+}
+.head-img {
+	width:100%;
+	height:92px;
+}
+.page-head {
+	line-height: 32px;
+	align-items: center;
+}
+.middle {
+	width:130px;
+	height:2px;
+	background: #E6E5E7;
+}
+.rotate90 {
+	transform: rotate(90deg);
+}
+.gray {
+	color:#787782;
+}
+
+.title {
+	line-height: 32px;
+}
+.items {
+	background: #fff;
+	color:#989898;
+	text-align: left;
+}
+.person,
+.tel {
+	width:50%;
+	text-align: left;
+}
+.line32 {
+	line-height: 32px;
+	border-bottom: 1px solid #F7F7F4;
+	padding-left:12px;
+}
+.svg {
+	width:20px;
+	height: 20px;
+	padding:0 5px;
+	vertical-align: text-bottom;
+}
+.noInfo {
+	padding-bottom: 600px;
+}

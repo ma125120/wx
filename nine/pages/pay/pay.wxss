@@ -1,0 +1,46 @@
+scroll-view {
+	min-height: 100%;
+}
+.page-head {
+	padding:0 5%;
+	border-bottom: 1px solid #999999;
+}
+.l {
+	width:49%;
+	text-align: left;
+}
+.foot .field {
+	border-bottom: 1px solid #999;
+}
+.r {
+	flex:1;
+	text-align: right;
+}
+
+.page-body {
+	width:72%;
+	margin:0 auto;
+	color:#797979;
+	font-size:12px;
+}
+.item {
+	display: flex;
+	border-bottom: 1px solid #999999;
+}
+
+.btn {
+	margin:32px auto 24px;
+	width:90%;
+	line-height: 36px;
+	border-radius: 36px;
+	font-size:14px;
+	color:#fff;
+	background: #00CC33;
+}
+.foot{
+  width:92%;
+  margin:12px auto;
+}
+.bt {
+	border-bottom: 1px solid #ddd;
+}

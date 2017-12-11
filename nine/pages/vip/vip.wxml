@@ -1,0 +1,8 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">
+		<image src="../../images/vip/v1.png" class='img'></image>
+		<image src="../../images/vip/v2.png" class='img'></image>
+	</view>
+	<button class="btn" bindtap="buyViper" wx:if="{{!isVip}}">购买会员</button>
+</scroll-view>
+

@@ -1,0 +1,45 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+
+	<view class="page-body">
+		<view class="items" wx:if="{{cases.length>0}}">
+			<block  wx:for="{{cases}}" wx:key="{{index}}">
+				<navigator url='../editInfo/editInfo?LUID={{item.LUID}}' class="item flex" >
+					<view class="left">
+						<image src="{{item.img}}" class="left1"></image>
+					</view>
+					
+					<view class="right">
+						<view class="top">
+							<view class="title">{{item.name}}</view>
+							<view class="store">型号:{{item.model}}</view>
+							
+						</view>
+						<view class="bottom">
+							<view class="l">仪器租金</view>
+							<view class="r fle">
+								<view class="symbol">￥</view>
+								<view class="price">{{item.price1}}-{{item.price2}}</view>
+								<view class="comment">/日</view>
+							</view>
+						</view>
+					</view>
+				</navigator>
+				<view class="gray-block"></view>
+			</block>
+			
+		</view>
+		<view wx:else class='noInfo'>
+			<image src="../../images/svg/noOrder.png" class='no-order'></image>
+			<view class="tip">没有查询到信息!</view>
+		</view>
+	</view>
+	
+</scroll-view>
+
+	<view class="toast" wx:if="{{toast}}">
+		<view class="toast-wrap">
+			<view class="toast-icon">!</view>
+			<view class="toast-title">{{toastTitle||'认证失败'}}</view>
+		</view>
+	</view>
+

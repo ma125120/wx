@@ -1,0 +1,13 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="body">
+		<view class="title bt flex">
+			<view class="lr-l">贝壳剩余数量:</view>
+			<view class="lr-r num">0</view>
+		</view>
+		<view class="item flex">
+			<view class="lr-l">累计获得贝壳总数:</view>
+			<view class="lr-r num">0</view>
+		</view>
+	</view>
+</scroll-view>
+

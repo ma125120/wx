@@ -1,0 +1,48 @@
+scroll-view {
+	min-height: 100vh;
+	background: #FDF6CA;
+	text-align: center;
+}
+.small {
+	font-size:16px;
+	padding-left:16rpx;
+}
+.body {
+	width:96%;
+	background: #fff;
+	margin:0 auto;
+	border-radius: 10rpx;
+	text-align: left;
+	line-height: 96rpx;
+}
+.title {
+	background: #FDDC2D;
+	line-height: 100rpx;
+	font-size:18px;
+	color:#fff;
+	padding-left:16rpx;
+	border-top-left-radius: 10rpx;
+	border-top-right-radius: 10rpx;
+}
+input {
+	border:none;
+}
+.field {
+	display: flex;
+	color:#767676;
+	font-size:14px;
+	align-items: center;
+}
+.label {
+	width:140rpx;
+	padding-left:16rpx;
+}
+.input {
+	flex:1;
+	line-height: 96rpx;
+	height: 96rpx;
+}
+.btn {
+	margin:96rpx auto;
+}
+

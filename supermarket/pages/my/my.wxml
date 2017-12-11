@@ -1,0 +1,89 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head">
+		<view class="person">
+			<image src="{{userInfo.avatarUrl}}"></image>
+			<view class='nickname'>{{userInfo.nickName}}</view>
+		</view>
+		<view class="moneys">
+			<navigator url="../wallet/wallet" class="money-item">
+				<view class="number">0.00</view>
+				<view class="text">余额</view>
+			</navigator>
+			<navigator url="../redPacket/redPacket" class="money-item">
+				<view class="number">3</view>
+				<view class="text">红包</view>
+			</navigator>
+			<navigator url="../shell/shell" class="money-item">
+				<view class="number">0</view>
+				<view class="text">贝壳</view>
+			</navigator>
+		</view>
+	</view>
+	
+	<navigator url='../myOrder/myOrder' class="my-order flex line48 bt">
+		<view class="lr-l">
+			<view class="title">我的订单</view>
+		</view>
+		<view class="lr-r">
+			<text class="txt">查看全部订单</text>
+			<image src='../../images/svg/arrow.png' class='arrow'></image>
+		</view>
+	</navigator>
+
+	<view class="pays text-center bt">
+		<view class="pay-item">
+			<image src="../../images/my/pay0.jpg"></image>
+			<view class='line32'>待支付</view>
+		</view>
+		<view class="pay-item">
+			<image src="../../images/my/pay0.jpg"></image>
+			<view class='line32'>待收货</view>
+		</view>
+		<view class="pay-item">
+			<image src="../../images/my/pay0.jpg"></image>
+			<view class='line32'>待评价</view>
+		</view>
+		<view class="pay-item">
+			<image src="../../images/my/pay0.jpg"></image>
+			<view class='line32'>退换</view>
+		</view>
+	</view>
+	<view class="gray-block"></view>
+
+	<view class="menus">
+		<view class="items">
+			<view class="item white" wx:for="{{menus}}" wx:key="{{index}}" >
+				<navigator url="{{item.url}}" class='flex' wx:if="{{item.url}}">
+					<view class="my-left flex">
+						<image src="{{item.icon}}"></image>
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</navigator>
+				<view class='flex' wx:if="{{index==4}}">
+					<view class="my-left flex">
+						<image src="{{item.icon}}"></image>
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						400-071-0012
+					</view>
+				</view>
+				<view class='flex'  wx:if="{{index==2}}">
+					<view class="my-left flex">
+						<image src="{{item.icon}}"></image>
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+</scroll-view>
+

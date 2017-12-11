@@ -1,0 +1,142 @@
+.city image {
+	width:20px;
+	height:20px;
+	padding:0 3px;
+}
+swiper {
+	margin:0 auto;
+}
+.slide {
+	width:750rpx;
+	height:386rpx;
+}
+
+.city {
+	line-height:24px;
+	background: #7E7E80;
+	color:#fff;
+	border-radius:27px;
+	padding:0 5px;
+	position: absolute;
+	top:10px;
+	left:10px;
+	z-index:1000;
+	font-size:12px;
+	display: flex;
+	align-items: center;
+}
+
+.w {
+	width:92%;
+	margin:0 auto;
+}
+.head {
+	width:100%;
+	display: flex;
+	justify-content: center;
+	padding:8px 0;
+	border:1px solid #DFDFDF;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px #888;
+	background: #fff;
+}
+.my-rent {
+	width:49%;
+	font-size:16px;
+}
+.my-rent image {
+	width:68px;
+	height:68px;
+	margin-bottom: 8px;
+}
+.my0 {
+	border-right:1px solid #DFDFDF;
+}
+
+.case-head {
+	display: flex;
+}
+.case-head .title {
+	text-align: left;
+	width:49%;
+	font-size:16px;
+}
+.case-head .more {
+	text-align: right;
+	flex:1;
+	font-size:12px;
+	color:#888;
+}
+.items {
+	display: flex;
+	text-align: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.items .item {
+	width:50%;
+  border:1px solid #C0C0C0;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+.symbol {
+	font-size:18px;
+}
+.price {
+	width:240rpx;
+	height:36px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*.odd {
+	margin-right:4%;
+}*/
+.item image {
+	width:120px;
+	height:120px;
+  /*padding:12px;*/
+}
+.detail {
+	display: flex;
+	line-height: 36px;
+	justify-content: center;
+	align-content: flex-end;
+}
+.item .title {
+	line-height: 32px;
+	border-bottom: 1px solid #888;
+}
+.item .title:after {
+	content:'热';
+	border:1px solid #E6A377;
+	font-size:12px;
+	color:#E6A377;
+	vertical-align: top;
+	border-radius:5px;
+	margin-left:5px;
+	padding:0 2px;
+	line-height: 22px;
+}
+
+.item .title,
+.item .price {
+	font-size:18px;
+}
+.item .price {
+	padding:0 5px 0 1px;
+}
+.item .price,
+.symbol {
+	color:#2A80C5;
+	vertical-align: text-bottom;
+}
+.symbol {
+  font-size:16px;
+}
+.comment {
+	font-size:12px;
+}
+.comment {
+	color:#888;
+	vertical-align: text-bottom;
+}

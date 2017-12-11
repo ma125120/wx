@@ -1,0 +1,65 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	
+	<view class="body">
+		<view class="gray-block"></view>
+		<view class="line42 field flex">
+			<view class="l">取货方式</view>
+			<view class="r radios">
+				<view class="radio" data-type="self" catchtap="changeGetWay">
+					<image src="../../images/svg/{{getWay=='self'?'radio1':'radio'}}.png"></image>
+					<text class='rp'>自提</text>
+				</view>
+				<view class="radio" data-type="send" catchtap="changeGetWay">
+					<image src="../../images/svg/{{getWay=='send'?'radio1':'radio'}}.png"></image>
+					<text class='rp'>送货</text>
+				</view>
+			</view>
+		</view>
+		<view class="gray-block"></view>
+			<view class="line42 field item">
+				<view class="l">收货人</view>
+				<input type="text" class='r' value="{{contact.name}}" placeholder="请输入收货人姓名" placeholder-class='place' bindchange="changeContact" data-type="name"  />
+			</view>
+			<view class="line42 field item">
+				<view class="l">收货电话</view>
+				<input type="text" class='r' value="{{contact.phone}}" placeholder="请输入收货电话" placeholder-class='place' bindchange="changeContact" data-type="phone" />
+			</view>
+		<block wx:if="{{sendFlag}}">
+			
+			<view class="line42 field flex">
+				<view class="l">收货地址</view>
+				<input type="text" class='r' value="{{contact.addr_pickup}}" placeholder="请输入收货地址" placeholder-class='place' bindchange="changeContact" data-type="addr_pickup" />
+			</view>
+		</block>
+		<view class="gray-block"></view>
+		<view class="head">
+			<view class="line42 field money bold item">
+				<view class="l">费用总计</view>
+				<view class="r">
+					<view class="price">￥{{total}}</view>
+				</view>
+			</view>	
+		</view>
+		<view class="items">
+			<view class="item cart" wx:for="{{carts}}" wx:key="{{index}}">
+				<view class="l">{{item.name}}</view>
+				<view class="r price">*{{item.myTotal}}×{{item.num||1}}</view>
+			</view>
+		</view>
+	</view>
+
+<!-- 	<view class="page-head line42 flex">
+		<view class="l text-left">订单总价</view>
+		<view class="r text-right">￥530</view>
+	</view> -->
+</scroll-view>
+
+<view class="foot">
+		<view class="left"  bindtap="radioChange">
+			<view class="text">总价为：</view>
+			<view class="price">￥{{total}}</view>
+			<view class="com">(含押金)</view>
+		</view>
+		<button class="right submit-btn" bindtap="commit" disabled="{{dis}}">立即支付</button>
+</view>
+

@@ -1,0 +1,20 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="wu" wx:if="{{myCars.length==0}}">没有查询到数据！</view>
+	<view wx:for="{{myCars}}" wx:key="{{item.id}}">
+		<view class="item">
+			<view class="l">
+				<image src='{{item.img1}}' mode='widthFix'></image>
+			</view>
+			<view class="m">
+				<view><text class="gray">车型：</text>{{all[item.i].name}}</view>
+				<view><text class="gray">品牌：</text>{{item.brand}}</view>
+				<view><text class="gray">出租方式：</text>{{item.price}}/天</view>
+				<view><text class="gray">座位数：</text>{{item.seat}}</view>
+			</view>
+			<navigator url='../myCalendar/myCalendar?id={{item.RUID}}' class="r"><text class="gray">出租信息</text></navigator>
+		</view>
+		<view class="bor_gray"></view>
+	</view>
+	
+</scroll-view>
+

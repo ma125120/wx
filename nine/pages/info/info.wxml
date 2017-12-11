@@ -1,0 +1,37 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="head flex white">
+		<view class="head-right">
+			<image src="{{userInfo.avatarUrl}}"></image>
+		</view>	
+	</view>
+	<view class="gray"></view>
+
+	<view class="menus">
+		<view class="items">
+			<view class="item white {{index==3?'sep':''}}" wx:for="{{menus}}" wx:key="{{index}}" >
+				<navigator url="{{item.url}}" class='flex' wx:if="{{item.url}}">
+					<view class="my-left flex">
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<text class="realname extra" wx:if="{{index==0}}">{{isVip?'会员':'非会员'}}</text>
+						<text class="realname extra" wx:if="{{index==3}}">{{isRealName?'已认证':'未认证'}}</text>
+						<text class="realname extra" wx:if="{{index==4}}">{{isCompany?'已认证':'未认证'}}</text>
+						<text class="realname extra" wx:if="{{index==2}}">{{isTicket?'已认证':'未认证'}}</text>
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</navigator>
+				<view class='flex' wx:else>
+					<view class="my-left flex">
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="my-right">
+						<image src='../../images/svg/arrow.png' class='arrow'></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</scroll-view>
+

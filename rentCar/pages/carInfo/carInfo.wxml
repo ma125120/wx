@@ -1,0 +1,115 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'>
+	<view class="main">
+		<swiper indicator-dots="true" autoplay="true" interval='3000'  circular="true">
+			<swiper-item wx:for="{{slides}}" wx:key="{{index}}" wx:if="{{item}}">
+				<image src="{{item}}" class='s_img'  mode='widthFix'></image>
+			</swiper-item>
+		</swiper>
+		<view class="body fuzhu">
+			<view class="title">{{car.name}}</view>
+			<view class="bor_gray"></view>
+
+			<view class="rent-title gray">租赁详情</view>
+			<view class="info">
+				<view class="flex w">
+					<view class="item">
+						<text class='gray'>车型：</text>
+						<text class="content">{{all[ai].name}}</text>
+					</view>
+					<view class="item1">
+						<text class='gray'>品牌：</text>
+						<text class="content">{{car.brand}}</text>
+					</view>
+				</view>
+
+				<view class="flex w">
+					<view class="item">
+						<text class='gray'>座位数：</text>
+						<text class="content">{{car.seat}}</text>
+					</view>
+					<!-- <view class="item1">
+						<text class='gray'>费用：</text>
+						<text class="content">{{car.price}}/月租</text>
+					</view> -->
+				</view>
+
+				<view  class="w">
+					<text class='gray'>出租方式：</text>
+					<text class="content">{{car.type}}</text>
+				</view>
+				<view  class="w">
+					<text class='gray'>公司名称：</text>
+					<text class="content">{{car.company}}</text>
+				</view>
+				<view  class="w" bindtap='goLocation'>
+					<text class='gray'>公司地址：</text>
+					<text class="content">{{car.Business_addr}}</text>
+				</view>
+
+				<view class="gray-block"></view>
+				<view class="calendar">
+					<view class="my-flex">
+						<view class="l">出租信息：</view>
+						<navigator url='../calendar/calendar?id={{car.RUID}}' class="r">出租日历</navigator>
+					</view>
+					<view class="weekdays my-flex">
+						<block wx:for="{{weekdays}}" wx:key="{{index}}">
+							<view class="col-7">{{item}}</view>
+						</block>
+					</view>
+					<view class="my-flex">
+						<block wx:for="{{dates}}" wx:key="{{index}}">
+							<view class="week col-7 date"><text class="cir cir{{item.status}}">{{item.num}}</text></view>
+						</block>
+					</view>
+
+					<view class="my-flex my">
+						<view class="col">
+							<text class="circle"></text>
+							<text>未租</text>
+						</view>
+						<view class="col">
+							<text class="circle red"></text>
+							<text>已租</text>
+						</view>
+						<view class="col">
+							<text class="circle half"></text>
+							<text>上午已租</text>
+						</view>
+						<view class="col">
+							<text class="circle half1"></text>
+							<text>下午已租</text>
+						</view>
+					</view>
+				</view>
+				<view class="gray-block"></view>
+
+				<view  class="w bot-com">
+					<text class='gray'>特别备注：</text>
+					<text class="beizhu">{{car.note}}</text>
+				</view>
+
+				<!-- <view class="flex ">
+					<view class="tel">
+						<text class='gray'>电话：</text>
+						<text class="content">{{car.Person_phone}}</text>
+					</view>
+					<view class="tel1">
+						<image src="../../images/carInfo/call.svg"></image>
+						<text class="content" bindtap='call'>立即拨打</text>
+					</view>
+				</view> -->
+				
+			</view>
+		</view>
+	</view>
+</scroll-view>
+<view class="page-wrap" wx:if="{{tel}}">
+	<view class="tel-view fixed">
+					<view class="l">
+						<image src="../../images/carInfo/call.svg" class='v_m'></image>
+						<text class="content v_m">{{car.Person_phone}}</text>
+					</view>
+					<view class="r" bindtap="call">立即拨打</view>
+	</view>
+</view>

@@ -1,0 +1,43 @@
+<scroll-view scroll-y="true" scroll-top='0' class='main'   bindtouchstart='mainStart' bindtouchend="mainEnd">
+	<view class="page-head">
+		<view class="menus flex {{scroll}}">
+			<picker mode="region" class="menu bor" bindchange="changeCity">{{city||'市区'}}<image src='../../images/svg/arrow.png' class='arrow rotate90'></image></picker>
+			<picker range="{{brands}}" range-key="product" class="menu bor" bindchange="changeBrand">{{brands[bi].product||'品牌'}}<image src='../../images/svg/arrow.png' class='arrow rotate90'></image></picker>
+			<picker range="{{sorts}}" range-key="title" class="menu" bindchange="changeSort">{{sorts[si].title||'品牌'}}<image src='../../images/svg/arrow.png' class='arrow rotate90'></image></picker>
+		</view>
+		<view class="types flex">
+			<view class="head-type {{index==typeIndex?'active':''}} " wx:for="{{types}}" wx:key="{{index}}" bindtap="changeType" data-index="{{index}}">{{item.name}}</view>
+		</view>
+		<view class="gray-block"></view>
+	</view>
+
+	<scroll-view class="page-body" scroll-y="true" animation="{{animationData}}" >
+		<view class="items" wx:if="{{cases.length>0}}">
+			<block  wx:for="{{cases}}" wx:key="{{index}}">
+				<navigator url='../device/device?LUID={{item.LUID}}' class="item flex" >
+					<image src="{{item.img}}" class="left"></image>
+					<view class="right">
+						<view class="top">
+							<view class="title">{{item.name}}</view>
+							<view class="store">库存:{{item.models[0].surplus}}</view>
+							<view class="store">地址:{{item.city}}</view>
+						</view>
+						<view class="bottom">
+							<view class="l">仪器租金</view>
+							<view class="r fle">
+								<view class="symbol">￥</view>
+								<view class="price">{{item.price1}}-{{item.price2}}</view>
+								<view class="comment">/日</view>
+							</view>
+						</view>
+					</view>
+				</navigator>
+				<view class="gray-block"></view>
+			</block>
+			
+		</view>
+		<view class="noInfo" wx:else>没有查询到信息！</view>
+	</scroll-view>
+	
+</scroll-view>
+
