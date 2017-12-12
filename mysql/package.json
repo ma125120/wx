@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "koa": "^2.3.0",
+    "merge-descriptors": "^1.0.1",
+    "mysql": "^2.14.1"
+  },
+  "scripts":{
+    "dev":"nodemon app.js"
+  }
+}

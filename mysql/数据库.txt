@@ -1,0 +1,168 @@
+﻿/*用户表*/
+CREATE TABLE user(
+	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(30) NOT NULL,
+	password VARCHAR(60) NOT NULL default 'e10adc3949ba59abbe56e057f20f883e',
+	id_level VARCHAR(10) NOT NULL,
+	id_card VARCHAR(18) NOT NULL,
+	real_name VARCHAR(10) NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE user add unique new_index1(username);
+/*成绩表*/
+CREATE TABLE score(
+	score_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(20) NOT NULL,
+	start_term VARCHAR(30) NOT NULL,
+	course_name VARCHAR(20) NOT NULL,
+	peace_score VARCHAR(4) NOT NULL,
+	peace_per VARCHAR(4) NOT NULL,
+	final_score VARCHAR(4) NOT NULL,
+	final_per VARCHAR(4) NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE score add index new_score1(username,course_name);
+/*
+创建课程库信息表
+*/
+CREATE TABLE course_lib(
+	course_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	course_name VARCHAR(30) NOT NULL,
+	credit FLOAT NOT NULL,
+	total_hours TINYINT NOT NULL,
+	teach_hour TINYINT NOT NULL,
+	type VARCHAR(15) NOT NULL,
+	teach_type CHAR(2) ,
+	test_mode CHAR(2) NOT NULL,
+	week_time VARCHAR(6) NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE course_lib add index new_index1(type,course_name);
+ALTER TABLE course_lib add unique new_index(course_name);
+
+/*班级课程信息表*/
+CREATE TABLE course_class(
+	course_cid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	course_time VARCHAR(40) NOT NULL,
+	course_room VARCHAR(30) NOT NULL,
+	course_dept VARCHAR(50) NOT NULL,
+	course_teacher VARCHAR(6) NOT NULL,
+	course_id INT NOT NULL,
+	start_term VARCHAR(20) NOT NULL,
+	constraint class_fk foreign key(course_id) references course_lib(course_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE course_class add unique index new_index3(course_dept,course_id);
+
+/*目录表*/
+CREATE TABLE dir_name(
+	dir_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	dir_name1 VARCHAR(20) NOT NULL,
+	dir_name2 VARCHAR(20) NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE dir_name add unique new_index1(dir_name1,dir_name2);
+
+/*资料存储表*/
+CREATE TABLE data_info(
+	data_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	data_name VARCHAR(50) NOT NULL,
+	store_time DATETIME NOT NULL,
+	dir_name1 VARCHAR(20) NOT NULL,
+	dir_name2 VARCHAR(20) NOT NULL,
+	upload_user VARCHAR(8) NOT NULL,
+	type CHAR(1) NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+ALTER TABLE data_info add unique index data_name(data_name);
+
+/*信箱表*/
+CREATE TABLE mail(
+	mail_id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	from_p VARCHAR(20) NOT NULL,
+	to_p VARCHAR(20) NOT NULL,
+	subject VARCHAR(50) NOT NULL,
+	content VARCHAR(1000) NOT NULL,
+	reply_flag CHAR(1) default 0,
+	reply VARCHAR(1000),
+	send_time DATATIME,
+	reply_time DATATIME	
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+
+/*公告信息表*/
+create table notice(
+	n_id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	n_subject VARCHAR(100) NOT NULL,
+	n_content VARCHAR(100) NOT NULL,
+	n_person VARCHAR(20) NOT NULL,
+	n_time DATETIME NOT NULL
+)ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+
+INSERT INTO course_lib(course_name,credit,total_hours,teach_hour,type,test_mode,week_time)  VALUES(
+'可编程控制器应用技术','1.5','24','24','专业课/必修课','闭卷','1-12'),
+('自动检测技术与仪表','3.5','56','48','专业课/必修课','闭卷','1-14'),
+('模拟电子技术','4.0','64','54','专业基础课/必修课','闭卷','1-16'),
+('自动控制理论','3.5','56','56','专业基础课/必修课','闭卷','1-14'),
+('微型计算机及控制技术','3.0','48','48','专业基础课/必修课','开卷','1-16'),
+('电力电子技术','2.5','40','40','专业课/必修课','闭卷','1-10'),
+('化工工艺及设备','1.5','24','24','专业课/限选课','开卷','1-12');
+
+
+select *from NOTICE; 
+SELECT *FROM course_lib
+ORDER BY convert(course_name USING gbk)
+COLLATE gbk_chinese_ci;
+
+create table ma as select course_name from course_lib;
+
+INSERT INTO data_info(data_name,store_time,dir_name1,dir_name2,upload_user,type) VALUES('经验.pdf',NOW(),
+'专业课必修课','PLC',
+'管理员1','0')
+
+/*插入记录*/
+insert into course_class(course_time,course_room,course_dept,start_term,course_teacher,course_id) 
+values('二[3-4节],四[1-2节]','D03014,D04018','132039','2015-2016学年第一学期','刘志成',
+(select course_id from course_lib where course_name='自动检测技术与仪表')),
+('一[3-4节]','D04019','132039','2015-2016学年第一学期','周敏',
+(select course_id from course_lib where course_name='可编程控制器应用技术')),
+('二[1-2节],四[3-4节]','D04018','132039','2015-2016学年第一学期','鲍乐平',
+(select course_id from course_lib where course_name='自动控制理论')),
+('二[5-6节],五[1-2节]双','D01003,S04001','132039','2015-2016学年第一学期','佟春生',
+(select course_id from course_lib where course_name='微型计算机及控制技术')),
+('一[1-2节],四[5-6节]','D01003,S04001','132039','2015-2016学年第一学期','刘彬',
+(select course_id from course_lib where course_name='电力电子技术')),
+('三[3-4节]]','D02006','132039','2015-2016学年第一学期','李晓红',
+(select course_id from course_lib where course_name='化工工艺及设备'));
+
+//赋予权限
+GRANT ALL PRIVILEGES ON *.* TO 'mapc'@'192.168.1.105' IDENTIFIED BY '125120' WITH 
+GRANT OPTION; 
+//mysql 密码修改
+mysqld --skip-grant-tables
+
+mysql -u root
+
+use mysql;
+
+UPDATE user SET authentication_string=PASSWORD("NEWPASSWORD") WHERE User='root';
+
+FLUSH PRIVILEGES;
+
+quit;
+
+insert into user values('ma',NOW());
+
+delete from user where username='ma';
+drop index new_index on course_lib;
+
+INSERT INTO notice VALUES('这是第一个公告','小马2',NOW());
+
+INSERT INTO mail(from_p,to_p,subject,content,send_time) VALUES('马同学','马老师','这是一个主题','这是内容',NOW());
+INSERT INTO mail(from_p,to_p,subject,content,send_time,read_flag) VALUES('马同学','马老师','这是一个主题','这是内容',
+NOW(),'1');
+INSERT INTO mail(from_p,to_p,subject,content,send_time) VALUES('马同学','马老师1','这是一个主题','这是内容',NOW());
+
+explain select *from course_dept where course_dept='1320391' AND course_time='一[1-2节]';
+drop table mail;
+
+alter table user drop descript;
+alter table user add tel char(11);
+insert into user values('马鹏达','125120','学生','142727199411501234','阿萨德');
+
+1320391,一[1-2节],2016-2017学年年第一学期,周敏
